@@ -7,8 +7,8 @@ and get plain-language answers with page and clause citations, or an explicit
 ## Status
 
 - [x] Step 1: PDF parser (page text, page labels, scanned-page detection)
-- [ ] Step 2: Header/footer removal
-- [ ] Step 3: Clause-aware chunking
+- [x] Step 2: Header/footer removal
+- [x] Step 3: Clause-aware chunking
 - [ ] Step 4: BM25 + dense indexes
 - [ ] Step 5: Hybrid retrieval + reranker
 - [ ] Step 6: Grounded answers, citations, abstention
