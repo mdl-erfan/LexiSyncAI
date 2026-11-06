@@ -33,6 +33,9 @@ class DenseIndex:
 
     def search(self, query: str, k: int = 5) -> list[tuple[Chunk, float]]:
         """Return the k most similar (chunk, cosine score) pairs, best first."""
+        if not self.chunks:
+            return []
+       
         q = next(iter(self.model.embed([QUERY_PREFIX + query])))
         scores = self.embeddings @ q
         best = np.argsort(-scores)[:k]
