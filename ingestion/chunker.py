@@ -6,7 +6,7 @@ from ingestion.parser import Page
 
 # Chunks longer than this many characters are split at line boundaries.
 MAX_CHARS = 1500
-
+# check if line starts with something new
 # Headings: "Article 83", "Section 4", "§ 9 Liability and Indemnification", "CHAPTER VIII"
 HEADING = re.compile(
     r"(?P<kind>article|section|§|chapter)\s*(?P<num>\d+[a-z]?|[ivxlc]+)"
@@ -14,7 +14,7 @@ HEADING = re.compile(
     re.IGNORECASE,
 )
 # Numbered clauses: "9.1   Exclusion of Liability for Sunrise. ..."
-CLAUSE = re.compile(r"(?P<num>\d+(?:\.\d+)+)\.?\s+(?P<rest>\S.*)")
+CLAUSE = re.compile(r"(?P<num>\d+(?:\.\d+)+)\.?\s+(?P<rest>\S.*)") # A number with at least one dot 7.2.1
 # Numbered paragraphs inside a heading: "4.   Infringements of the following ..."
 PARAGRAPH = re.compile(r"(?P<num>\d{1,3})\.\s+\S")
 # Numbered items before any heading (e.g. recitals): "(12) Whereas ..."
