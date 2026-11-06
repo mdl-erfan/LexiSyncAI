@@ -12,11 +12,11 @@ Final project for Deep Learning & GenAI (DA3), SRH Hochschule Hamburg.
 - [x] Step 2: Header/footer removal
 - [x] Step 3: Clause-aware chunking
 - [x] Step 4: Single `ingest_pdf` pipeline function + automated tests
-- [ ] Step 5: BM25 + dense indexes
+- [x] Step 5: BM25 + dense indexes
   - [x] 5A: Legal-aware tokenizer
   - [x] 5B: BM25 index
   - [x] 5C: Dense index (bge-small)
-  - [ ] 5E: Retrieval tests
+  - [x] 5E: Retrieval tests
 - [ ] Step 6: Hybrid retrieval (RRF) + cross-encoder reranker, recall@k per configuration
 - [ ] Step 7: Grounded answers with page/clause citations, abstention, confidence badge (Llama 3.2 via Ollama)
 - [ ] Step 8: Streamlit UI (upload, detected structure, cited page side by side)
@@ -46,6 +46,9 @@ PDF -> parser.py -> cleaning.py -> chunker.py -> chunks -> BM25 index  (keywords
 | `tokenizer.py` | Turns text into search tokens while keeping legal references intact: amounts (`10 000 000` and `10,000,000` → `10000000`), references (`83(4)`, `6(1)(a)`), clause numbers (`9.3`) and redactions (`[***]` → `[redacted]`). |
 | `bm25.py` | Keyword search with BM25 over each chunk's section label, heading and text. Strong on exact references and amounts. |
 | `dense.py` | Semantic search with the pretrained `BAAI/bge-small-en-v1.5` embedding model (384-dimensional vectors, cosine similarity). Strong on paraphrased questions. |
+
+Both indexes return an empty result for a document without text (e.g. a fully
+scanned PDF) instead of crashing.
 
 **Embedding runtime:** `bge-small` runs as an optimised ONNX export via
 [fastembed](https://github.com/qdrant/fastembed) rather than PyTorch. PyTorch no
@@ -115,7 +118,7 @@ python -m ingestion.chunker data/raw/vendor_contract.pdf "9.3"
 python -m pytest
 ```
 
-50 tests, all passing.
+78 tests, all passing.
 
 | File | Tests | What it covers |
 |---|---|---|
@@ -124,9 +127,13 @@ python -m pytest
 | `test_chunker.py` | 11 | Section labels, heading merging, page ranges, table of contents, splitting long chunks, no text lost |
 | `test_pipeline.py` | 12 | End-to-end on a generated PDF, error handling, determinism, multi-document ingestion |
 | `test_corpus.py` | 5 | Real documents: Art. 83(4) on p. 82, Art. 83(5) on p. 83, clause 9.3 on p. 22, `[***]` kept |
+| `test_tokenizer.py` | 15 | Amount normalisation, legal references, clause numbers, redactions, stopwords |
+| `test_bm25.py` | 7 | Exact amounts, references from section labels, unrelated queries, empty index |
+| `test_dense.py` | 6 | Uses a fake model (no download): vector shape, query prefix, ranking, empty index |
 
-The unit tests generate their own small PDFs, so they run on any machine without
-the corpus. `test_corpus.py` skips itself if the PDFs are not in `data/raw/`.
+The unit tests generate their own small PDFs and use a fake embedding model, so
+they run on any machine without the corpus or a model download.
+`test_corpus.py` skips itself if the PDFs are not in `data/raw/`.
 
 ## Results so far
 
@@ -184,6 +191,6 @@ retrieval/    Tokenizer, BM25 index, dense index (hybrid + reranker planned)
 generation/   Cited answers, abstention, confidence badge (planned)
 app/          Streamlit UI (planned)
 evaluation/   Question set, recall@k, citation precision, abstention accuracy (planned)
-tests/        Automated tests (pytest, 50 tests)
+tests/        Automated tests (pytest, 78 tests)
 data/raw/     Source PDFs (not committed)
 ```
