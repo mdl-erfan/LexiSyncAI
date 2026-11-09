@@ -161,6 +161,7 @@ venv.bak/
 .DS_Store
 vscode/
 data/
+models/
 
 # Spyder project settings
 .spyderproject
