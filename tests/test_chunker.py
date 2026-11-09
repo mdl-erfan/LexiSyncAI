@@ -96,3 +96,14 @@ def test_no_text_is_lost_or_reordered():
     chunks = chunk_pages(pages)
     assert [line for c in chunks for line in c.lines] == [line for p in pages for line in p.lines]
     assert all(len(c.lines) == len(c.line_pages) for c in chunks)
+
+def test_article_without_numbered_paragraphs_keeps_its_own_label():
+    pages = make_pages([
+        "Article 4", "Definitions", "For the purposes of this Regulation:",
+        "(1) 'personal data' means any information relating to a natural person.",
+        "Article 5", "Principles relating to processing of personal data",
+        "1. Personal data shall be processed lawfully.",
+    ])
+    chunks = chunk_pages(pages)
+    assert [c.section for c in chunks] == ["Article 4", "Article 5(1)"]
+    assert chunks[0].heading == "Article 4 Definitions"

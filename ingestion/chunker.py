@@ -115,6 +115,8 @@ def chunk_pages(pages: list[Page]) -> list[Chunk]:
 
             current.lines.append(line)
             current.line_pages.append(page.page_no)
+            if not (label or is_title):
+                current.heading_only = False   # body text arrived: no longer just a heading
 
     if current and current.lines:
         chunks.append(current)
