@@ -1,0 +1,2272 @@
+{
+  "BM25": [
+    {
+      "id": "gdpr-01",
+      "type": "factual",
+      "seconds": 0.007428169250488281,
+      "best_score": 25.137692287864027,
+      "top": [
+        "gdpr_2016_679.pdf|Article 33(1)|p.52",
+        "gdpr_2016_679.pdf|(85)|p.16",
+        "gdpr_2016_679.pdf|Article 33(2)|p.52",
+        "gdpr_2016_679.pdf|Article 33(5)|p.52",
+        "gdpr_2016_679.pdf|Article 54(1)|p.66"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-02",
+      "type": "factual",
+      "seconds": 0.0020051002502441406,
+      "best_score": 31.711869347809543,
+      "top": [
+        "gdpr_2016_679.pdf|Article 8(1)|p.37",
+        "gdpr_2016_679.pdf|Article 8(2)|p.38",
+        "gdpr_2016_679.pdf|Article 8(3)|p.38",
+        "gdpr_2016_679.pdf|(58)|p.11",
+        "gdpr_2016_679.pdf|(38)|p.7"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-03",
+      "type": "factual",
+      "seconds": 0.0021419525146484375,
+      "best_score": 15.480393679752204,
+      "top": [
+        "gdpr_2016_679.pdf|Article 7(3)|p.37",
+        "gdpr_2016_679.pdf|(42)|p.8",
+        "gdpr_2016_679.pdf|(43)|p.8",
+        "gdpr_2016_679.pdf|Article 89(1)|p.84",
+        "gdpr_2016_679.pdf|Article 8(2)|p.38"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-04",
+      "type": "factual",
+      "seconds": 0.0022110939025878906,
+      "best_score": 14.483612345492778,
+      "top": [
+        "gdpr_2016_679.pdf|(59)|p.11",
+        "vendor_contract.pdf|34.1|p.42",
+        "gdpr_2016_679.pdf|(66)|p.13",
+        "gdpr_2016_679.pdf|Article 12(3)|p.40",
+        "vendor_contract.pdf|20.2|p.32"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 0.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 0.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-05",
+      "type": "factual",
+      "seconds": 0.0009360313415527344,
+      "best_score": 7.367110656375208,
+      "top": [
+        "gdpr_2016_679.pdf|(16)|p.3",
+        "gdpr_2016_679.pdf|(27)|p.5",
+        "gdpr_2016_679.pdf|(18)|p.3",
+        "vendor_contract.pdf|3.11|p.15",
+        "vendor_contract.pdf|16.1|p.27"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 0.0,
+        "5": 0.0,
+        "10": 0.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 0.0,
+        "5": 0.0,
+        "10": 0.0
+      }
+    },
+    {
+      "id": "gdpr-06",
+      "type": "factual",
+      "seconds": 0.00148773193359375,
+      "best_score": 8.7616612907657,
+      "top": [
+        "vendor_contract.pdf|3.14|p.15",
+        "vendor_contract.pdf|20.2|p.32",
+        "vendor_contract.pdf|15.2|p.26",
+        "gdpr_2016_679.pdf|(157)|p.29",
+        "gdpr_2016_679.pdf|Article 89(1)|p.84"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 0.0,
+        "5": 0.0,
+        "10": 0.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 0.0,
+        "5": 0.0,
+        "10": 0.0
+      }
+    },
+    {
+      "id": "gdpr-07",
+      "type": "factual",
+      "seconds": 0.001219034194946289,
+      "best_score": 5.261889851024148,
+      "top": [
+        "gdpr_2016_679.pdf|(16)|p.3",
+        "gdpr_2016_679.pdf|(27)|p.5",
+        "gdpr_2016_679.pdf|(18)|p.3",
+        "gdpr_2016_679.pdf|(39)|p.7",
+        "gdpr_2016_679.pdf|Article 11(1)|p.39"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 0.0,
+        "5": 0.0,
+        "10": 0.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 0.0,
+        "5": 0.0,
+        "10": 0.0
+      }
+    },
+    {
+      "id": "gdpr-08",
+      "type": "multihop",
+      "seconds": 0.0018308162689208984,
+      "best_score": 14.634249991682815,
+      "top": [
+        "gdpr_2016_679.pdf|(151)|p.28",
+        "gdpr_2016_679.pdf|(1)|p.28",
+        "gdpr_2016_679.pdf|Article 83(2)|p.82",
+        "gdpr_2016_679.pdf|Article 58(2)|p.70",
+        "gdpr_2016_679.pdf|Article 83(3)|p.82"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 0.5,
+        "5": 0.5,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 0.0,
+        "5": 0.0,
+        "10": 0.0
+      }
+    },
+    {
+      "id": "gdpr-09",
+      "type": "multihop",
+      "seconds": 0.0020630359649658203,
+      "best_score": 13.080509431023534,
+      "top": [
+        "gdpr_2016_679.pdf|Article 17(1)|p.43",
+        "gdpr_2016_679.pdf|Article 7(2)|p.37",
+        "gdpr_2016_679.pdf|(65)|p.12",
+        "gdpr_2016_679.pdf|Article 22(2)|p.46",
+        "gdpr_2016_679.pdf|(38)|p.7"
+      ],
+      "recall": {
+        "1": 0.5,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.5,
+        "3": 0.5,
+        "5": 0.5,
+        "10": 0.5
+      }
+    },
+    {
+      "id": "gdpr-10",
+      "type": "unanswerable",
+      "seconds": 0.0015716552734375,
+      "best_score": 10.889852820196769,
+      "top": [
+        "vendor_contract.pdf|34.1|p.42",
+        "gdpr_2016_679.pdf|Article 54(1)|p.66",
+        "vendor_contract.pdf|21.1|p.34",
+        "gdpr_2016_679.pdf|(39)|p.7",
+        "gdpr_2016_679.pdf|Article 32(2)|p.52"
+      ]
+    },
+    {
+      "id": "gdpr-11",
+      "type": "unanswerable",
+      "seconds": 0.001964092254638672,
+      "best_score": 11.765944378843823,
+      "top": [
+        "gdpr_2016_679.pdf|Article 58(2)|p.70",
+        "gdpr_2016_679.pdf|Article 83(2)|p.82",
+        "gdpr_2016_679.pdf|(151)|p.28",
+        "gdpr_2016_679.pdf|(150)|p.27",
+        "gdpr_2016_679.pdf|(124)|p.23"
+      ]
+    },
+    {
+      "id": "sun-01",
+      "type": "factual",
+      "seconds": 0.001687765121459961,
+      "best_score": 19.180835174852447,
+      "top": [
+        "vendor_contract.pdf|17.2|p.27",
+        "vendor_contract.pdf|17.4|p.28",
+        "vendor_contract.pdf|17.1|p.27",
+        "vendor_contract.pdf|34.1|p.42",
+        "vendor_contract.pdf|17.17|p.32"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 0.0,
+        "5": 0.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-02",
+      "type": "factual",
+      "seconds": 0.0012352466583251953,
+      "best_score": 26.770157544775703,
+      "top": [
+        "vendor_contract.pdf|9.7|p.23",
+        "vendor_contract.pdf|\u00a7 1(3)|p.8",
+        "vendor_contract.pdf|33.3|p.42",
+        "gdpr_2016_679.pdf|Article 99(1)|p.87",
+        "vendor_contract.pdf|20.2|p.32"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-03",
+      "type": "factual",
+      "seconds": 0.0013718605041503906,
+      "best_score": 16.879173999531204,
+      "top": [
+        "vendor_contract.pdf|29.3|p.39",
+        "vendor_contract.pdf|29.1|p.38",
+        "vendor_contract.pdf|29.2|p.38",
+        "vendor_contract.pdf|17.9|p.29",
+        "vendor_contract.pdf|9.7|p.23"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-04",
+      "type": "factual",
+      "seconds": 0.0014841556549072266,
+      "best_score": 16.84623900117549,
+      "top": [
+        "vendor_contract.pdf|30.1|p.39",
+        "vendor_contract.pdf|17.7|p.28",
+        "vendor_contract.pdf|6.3|p.18",
+        "vendor_contract.pdf|6.3|p.18",
+        "vendor_contract.pdf|33.3|p.42"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-05",
+      "type": "factual",
+      "seconds": 0.0009760856628417969,
+      "best_score": 24.539261665773285,
+      "top": [
+        "vendor_contract.pdf|16.3|p.27",
+        "vendor_contract.pdf|17.14|p.30",
+        "vendor_contract.pdf|16.1|p.27",
+        "gdpr_2016_679.pdf|(124)|p.23",
+        "vendor_contract.pdf|16.2|p.27"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-06",
+      "type": "multihop",
+      "seconds": 0.0013260841369628906,
+      "best_score": 10.975457689120084,
+      "top": [
+        "vendor_contract.pdf|32.4|p.41",
+        "vendor_contract.pdf|35.2|p.42",
+        "gdpr_2016_679.pdf|(136)|p.25",
+        "gdpr_2016_679.pdf|(104)|p.19",
+        "gdpr_2016_679.pdf|Article 75(6)|p.79"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 0.5,
+        "5": 0.5,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-07",
+      "type": "multihop",
+      "seconds": 0.0014901161193847656,
+      "best_score": 15.323780675366232,
+      "top": [
+        "vendor_contract.pdf|17.1|p.27",
+        "vendor_contract.pdf|17.15|p.30",
+        "vendor_contract.pdf|34.1|p.42",
+        "vendor_contract.pdf|17.2|p.27",
+        "gdpr_2016_679.pdf|(157)|p.29"
+      ],
+      "recall": {
+        "1": 0.5,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.5,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-08",
+      "type": "unanswerable",
+      "seconds": 0.0009808540344238281,
+      "best_score": 7.513144004727467,
+      "top": [
+        "gdpr_2016_679.pdf|(124)|p.23",
+        "gdpr_2016_679.pdf|Article 54(1)|p.66",
+        "gdpr_2016_679.pdf|(72)|p.14",
+        "vendor_contract.pdf|32.2|p.41",
+        "gdpr_2016_679.pdf|(45)|p.8"
+      ]
+    },
+    {
+      "id": "sun-09",
+      "type": "unanswerable",
+      "seconds": 0.0011010169982910156,
+      "best_score": 10.256855709781552,
+      "top": [
+        "vendor_contract.pdf|21.1|p.34",
+        "gdpr_2016_679.pdf|(48)|p.9",
+        "vendor_contract.pdf|34.1|p.42",
+        "gdpr_2016_679.pdf|Article 54(1)|p.66",
+        "vendor_contract.pdf|3.9|p.14"
+      ]
+    }
+  ],
+  "Dense": [
+    {
+      "id": "gdpr-01",
+      "type": "factual",
+      "seconds": 0.02237701416015625,
+      "best_score": 0.8645000457763672,
+      "top": [
+        "gdpr_2016_679.pdf|Article 33(1)|p.52",
+        "gdpr_2016_679.pdf|Article 33(2)|p.52",
+        "gdpr_2016_679.pdf|(85)|p.16",
+        "gdpr_2016_679.pdf|Article 33(5)|p.52",
+        "gdpr_2016_679.pdf|(87)|p.17"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-02",
+      "type": "factual",
+      "seconds": 0.0074040889739990234,
+      "best_score": 0.8442244529724121,
+      "top": [
+        "gdpr_2016_679.pdf|Article 8(1)|p.37",
+        "gdpr_2016_679.pdf|Article 8(2)|p.38",
+        "gdpr_2016_679.pdf|Article 8(3)|p.38",
+        "gdpr_2016_679.pdf|(38)|p.7",
+        "gdpr_2016_679.pdf|Article 12(1)|p.39"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-03",
+      "type": "factual",
+      "seconds": 0.0070040225982666016,
+      "best_score": 0.8506733179092407,
+      "top": [
+        "gdpr_2016_679.pdf|Article 7(3)|p.37",
+        "gdpr_2016_679.pdf|(43)|p.8",
+        "gdpr_2016_679.pdf|(32)|p.6",
+        "gdpr_2016_679.pdf|(65)|p.12",
+        "gdpr_2016_679.pdf|(40)|p.7"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-04",
+      "type": "factual",
+      "seconds": 0.007816314697265625,
+      "best_score": 0.8017207980155945,
+      "top": [
+        "gdpr_2016_679.pdf|Article 12(3)|p.40",
+        "gdpr_2016_679.pdf|Article 12(4)|p.40",
+        "gdpr_2016_679.pdf|(59)|p.11",
+        "gdpr_2016_679.pdf|(63)|p.12",
+        "gdpr_2016_679.pdf|Article 12(2)|p.40"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-05",
+      "type": "factual",
+      "seconds": 0.0063250064849853516,
+      "best_score": 0.6790283918380737,
+      "top": [
+        "gdpr_2016_679.pdf|Article 99(2)|p.87",
+        "gdpr_2016_679.pdf|(1)|p.4",
+        "gdpr_2016_679.pdf||p.1",
+        "gdpr_2016_679.pdf|(17)|p.3",
+        "gdpr_2016_679.pdf|Article 35(6)|p.53"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-06",
+      "type": "factual",
+      "seconds": 0.00651097297668457,
+      "best_score": 0.7210685014724731,
+      "top": [
+        "gdpr_2016_679.pdf|Article 83(6)|p.83",
+        "gdpr_2016_679.pdf|Article 83(4)|p.82",
+        "gdpr_2016_679.pdf|Article 83(3)|p.82",
+        "gdpr_2016_679.pdf|(148)|p.27",
+        "gdpr_2016_679.pdf|Article 83(2)|p.82"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-07",
+      "type": "factual",
+      "seconds": 0.005619049072265625,
+      "best_score": 0.8123811483383179,
+      "top": [
+        "gdpr_2016_679.pdf|Article 4|p.33",
+        "gdpr_2016_679.pdf|Article 4|p.33",
+        "gdpr_2016_679.pdf|Article 4|p.34",
+        "gdpr_2016_679.pdf|(162)|p.30",
+        "gdpr_2016_679.pdf|(159)|p.30"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-08",
+      "type": "multihop",
+      "seconds": 0.00740814208984375,
+      "best_score": 0.6828721165657043,
+      "top": [
+        "gdpr_2016_679.pdf|Article 83(6)|p.83",
+        "gdpr_2016_679.pdf|Article 83(4)|p.82",
+        "gdpr_2016_679.pdf|Article 83(3)|p.82",
+        "gdpr_2016_679.pdf|(148)|p.27",
+        "gdpr_2016_679.pdf|Article 83(5)|p.83"
+      ],
+      "recall": {
+        "1": 0.5,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 0.5,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-09",
+      "type": "multihop",
+      "seconds": 0.007364034652709961,
+      "best_score": 0.8072994351387024,
+      "top": [
+        "gdpr_2016_679.pdf|Article 7(3)|p.37",
+        "gdpr_2016_679.pdf|(65)|p.12",
+        "gdpr_2016_679.pdf|(43)|p.8",
+        "gdpr_2016_679.pdf|(32)|p.6",
+        "gdpr_2016_679.pdf|(68)|p.13"
+      ],
+      "recall": {
+        "1": 0.5,
+        "3": 0.5,
+        "5": 0.5,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.5,
+        "3": 0.5,
+        "5": 0.5,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-10",
+      "type": "unanswerable",
+      "seconds": 0.006481170654296875,
+      "best_score": 0.6782803535461426,
+      "top": [
+        "gdpr_2016_679.pdf|(137)|p.25",
+        "gdpr_2016_679.pdf|(62)|p.12",
+        "gdpr_2016_679.pdf|Article 5(1)|p.36",
+        "gdpr_2016_679.pdf|(156)|p.29",
+        "vendor_contract.pdf|\u00a7 28|p.38"
+      ]
+    },
+    {
+      "id": "gdpr-11",
+      "type": "unanswerable",
+      "seconds": 0.0063610076904296875,
+      "best_score": 0.6743839979171753,
+      "top": [
+        "gdpr_2016_679.pdf|Article 25(1)|p.48",
+        "gdpr_2016_679.pdf|(108)|p.20",
+        "gdpr_2016_679.pdf|(1)|p.4",
+        "gdpr_2016_679.pdf|Article 25(2)|p.48",
+        "gdpr_2016_679.pdf|(105)|p.20"
+      ]
+    },
+    {
+      "id": "sun-01",
+      "type": "factual",
+      "seconds": 0.006865262985229492,
+      "best_score": 0.7874600291252136,
+      "top": [
+        "vendor_contract.pdf|17.4|p.28",
+        "vendor_contract.pdf|17.3|p.27",
+        "vendor_contract.pdf|17.5|p.28",
+        "vendor_contract.pdf|9.5|p.22",
+        "vendor_contract.pdf|17.7|p.28"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-02",
+      "type": "factual",
+      "seconds": 0.0061397552490234375,
+      "best_score": 0.7913028001785278,
+      "top": [
+        "vendor_contract.pdf|9.7|p.23",
+        "gdpr_2016_679.pdf|Article 62(7)|p.73",
+        "gdpr_2016_679.pdf|Article 61(8)|p.72",
+        "gdpr_2016_679.pdf|Article 99(1)|p.87",
+        "gdpr_2016_679.pdf|Article 59|p.70"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-03",
+      "type": "factual",
+      "seconds": 0.006169795989990234,
+      "best_score": 0.8383845686912537,
+      "top": [
+        "vendor_contract.pdf|29.3|p.39",
+        "vendor_contract.pdf|29.1|p.38",
+        "gdpr_2016_679.pdf|(171)|p.31",
+        "gdpr_2016_679.pdf|Article 96|p.87",
+        "vendor_contract.pdf|29.2|p.38"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-04",
+      "type": "factual",
+      "seconds": 0.006731986999511719,
+      "best_score": 0.7142041921615601,
+      "top": [
+        "vendor_contract.pdf|30.1|p.39",
+        "gdpr_2016_679.pdf|Article 28(9)|p.50",
+        "vendor_contract.pdf|35.5|p.43",
+        "vendor_contract.pdf|32.4|p.41",
+        "gdpr_2016_679.pdf|Article 30(3)|p.51"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-05",
+      "type": "factual",
+      "seconds": 0.006009101867675781,
+      "best_score": 0.8023669719696045,
+      "top": [
+        "vendor_contract.pdf|16.3|p.27",
+        "vendor_contract.pdf|16.1|p.27",
+        "vendor_contract.pdf|16.4|p.27",
+        "vendor_contract.pdf|33.2|p.42",
+        "vendor_contract.pdf|16.2|p.27"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-06",
+      "type": "multihop",
+      "seconds": 0.006827116012573242,
+      "best_score": 0.6836743354797363,
+      "top": [
+        "gdpr_2016_679.pdf|Article 65(1)|p.74",
+        "vendor_contract.pdf|32.4|p.41",
+        "gdpr_2016_679.pdf|Article 65(2)|p.75",
+        "gdpr_2016_679.pdf|(136)|p.25",
+        "gdpr_2016_679.pdf|Article 65(5)|p.75"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 0.0,
+        "5": 0.0,
+        "10": 0.5
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 0.0,
+        "5": 0.0,
+        "10": 0.5
+      }
+    },
+    {
+      "id": "sun-07",
+      "type": "multihop",
+      "seconds": 0.006478071212768555,
+      "best_score": 0.7607672214508057,
+      "top": [
+        "vendor_contract.pdf|17.1|p.27",
+        "vendor_contract.pdf|17.4|p.28",
+        "vendor_contract.pdf|17.3|p.27",
+        "vendor_contract.pdf|17.5|p.28",
+        "vendor_contract.pdf|17.7|p.28"
+      ],
+      "recall": {
+        "1": 0.5,
+        "3": 0.5,
+        "5": 0.5,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.5,
+        "3": 0.5,
+        "5": 0.5,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-08",
+      "type": "unanswerable",
+      "seconds": 0.006552219390869141,
+      "best_score": 0.6879894733428955,
+      "top": [
+        "vendor_contract.pdf|35.1|p.42",
+        "gdpr_2016_679.pdf|Article 60|p.71",
+        "gdpr_2016_679.pdf|Article 47(2)|p.63",
+        "gdpr_2016_679.pdf|Article 49(1)|p.64",
+        "gdpr_2016_679.pdf|(135)|p.25"
+      ]
+    },
+    {
+      "id": "sun-09",
+      "type": "unanswerable",
+      "seconds": 0.005900144577026367,
+      "best_score": 0.6538541316986084,
+      "top": [
+        "vendor_contract.pdf|6.1|p.17",
+        "vendor_contract.pdf|34.2|p.42",
+        "vendor_contract.pdf|3.16|p.15",
+        "vendor_contract.pdf|3.7|p.14",
+        "vendor_contract.pdf|\u00a7 3|p.12"
+      ]
+    }
+  ],
+  "Hybrid (RRF)": [
+    {
+      "id": "gdpr-01",
+      "type": "factual",
+      "seconds": 0.009184837341308594,
+      "best_score": 0.03278688524590164,
+      "top": [
+        "gdpr_2016_679.pdf|Article 33(1)|p.52",
+        "gdpr_2016_679.pdf|(85)|p.16",
+        "gdpr_2016_679.pdf|Article 33(2)|p.52",
+        "gdpr_2016_679.pdf|Article 33(5)|p.52",
+        "gdpr_2016_679.pdf|Article 34(4)|p.53"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-02",
+      "type": "factual",
+      "seconds": 0.008569002151489258,
+      "best_score": 0.03278688524590164,
+      "top": [
+        "gdpr_2016_679.pdf|Article 8(1)|p.37",
+        "gdpr_2016_679.pdf|Article 8(2)|p.38",
+        "gdpr_2016_679.pdf|Article 8(3)|p.38",
+        "gdpr_2016_679.pdf|(38)|p.7",
+        "gdpr_2016_679.pdf|(58)|p.11"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-03",
+      "type": "factual",
+      "seconds": 0.008620023727416992,
+      "best_score": 0.03278688524590164,
+      "top": [
+        "gdpr_2016_679.pdf|Article 7(3)|p.37",
+        "gdpr_2016_679.pdf|(43)|p.8",
+        "gdpr_2016_679.pdf|(42)|p.8",
+        "gdpr_2016_679.pdf|Article 18(1)|p.44",
+        "gdpr_2016_679.pdf|(32)|p.6"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-04",
+      "type": "factual",
+      "seconds": 0.009390830993652344,
+      "best_score": 0.032266458495966696,
+      "top": [
+        "gdpr_2016_679.pdf|(59)|p.11",
+        "gdpr_2016_679.pdf|Article 12(3)|p.40",
+        "gdpr_2016_679.pdf|Article 12(4)|p.40",
+        "gdpr_2016_679.pdf|(63)|p.12",
+        "gdpr_2016_679.pdf|(141)|p.25"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-05",
+      "type": "factual",
+      "seconds": 0.0068280696868896484,
+      "best_score": 0.01639344262295082,
+      "top": [
+        "gdpr_2016_679.pdf|(16)|p.3",
+        "gdpr_2016_679.pdf|Article 99(2)|p.87",
+        "gdpr_2016_679.pdf|(27)|p.5",
+        "gdpr_2016_679.pdf|(1)|p.4",
+        "gdpr_2016_679.pdf|(18)|p.3"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-06",
+      "type": "factual",
+      "seconds": 0.008090734481811523,
+      "best_score": 0.01639344262295082,
+      "top": [
+        "vendor_contract.pdf|3.14|p.15",
+        "gdpr_2016_679.pdf|Article 83(6)|p.83",
+        "vendor_contract.pdf|20.2|p.32",
+        "gdpr_2016_679.pdf|Article 83(4)|p.82",
+        "vendor_contract.pdf|15.2|p.26"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-07",
+      "type": "factual",
+      "seconds": 0.007197141647338867,
+      "best_score": 0.01639344262295082,
+      "top": [
+        "gdpr_2016_679.pdf|(16)|p.3",
+        "gdpr_2016_679.pdf|Article 4|p.33",
+        "gdpr_2016_679.pdf|(27)|p.5",
+        "gdpr_2016_679.pdf|Article 4|p.33",
+        "gdpr_2016_679.pdf|(18)|p.3"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-08",
+      "type": "multihop",
+      "seconds": 0.009409904479980469,
+      "best_score": 0.03125763125763126,
+      "top": [
+        "gdpr_2016_679.pdf|Article 83(3)|p.82",
+        "gdpr_2016_679.pdf|(148)|p.27",
+        "gdpr_2016_679.pdf|(151)|p.28",
+        "gdpr_2016_679.pdf|(1)|p.28",
+        "gdpr_2016_679.pdf|Article 83(2)|p.82"
+      ],
+      "recall": {
+        "1": 0.5,
+        "3": 0.5,
+        "5": 0.5,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 0.0,
+        "5": 0.0,
+        "10": 0.5
+      }
+    },
+    {
+      "id": "gdpr-09",
+      "type": "multihop",
+      "seconds": 0.009543895721435547,
+      "best_score": 0.03200204813108039,
+      "top": [
+        "gdpr_2016_679.pdf|(65)|p.12",
+        "gdpr_2016_679.pdf|Article 17(1)|p.43",
+        "gdpr_2016_679.pdf|(43)|p.8",
+        "gdpr_2016_679.pdf|Article 7(3)|p.37",
+        "gdpr_2016_679.pdf|Article 7(2)|p.37"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 0.5,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 0.5,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-10",
+      "type": "unanswerable",
+      "seconds": 0.00861811637878418,
+      "best_score": 0.03057889822595705,
+      "top": [
+        "gdpr_2016_679.pdf|Article 5(1)|p.36",
+        "vendor_contract.pdf|34.1|p.42",
+        "gdpr_2016_679.pdf|(137)|p.25",
+        "gdpr_2016_679.pdf|Article 54(1)|p.66",
+        "gdpr_2016_679.pdf|(62)|p.12"
+      ]
+    },
+    {
+      "id": "gdpr-11",
+      "type": "unanswerable",
+      "seconds": 0.008504867553710938,
+      "best_score": 0.01639344262295082,
+      "top": [
+        "gdpr_2016_679.pdf|Article 58(2)|p.70",
+        "gdpr_2016_679.pdf|Article 25(1)|p.48",
+        "gdpr_2016_679.pdf|Article 83(2)|p.82",
+        "gdpr_2016_679.pdf|(108)|p.20",
+        "gdpr_2016_679.pdf|(151)|p.28"
+      ]
+    },
+    {
+      "id": "sun-01",
+      "type": "factual",
+      "seconds": 0.008588790893554688,
+      "best_score": 0.03252247488101534,
+      "top": [
+        "vendor_contract.pdf|17.4|p.28",
+        "vendor_contract.pdf|17.2|p.27",
+        "vendor_contract.pdf|17.3|p.27",
+        "vendor_contract.pdf|17.17|p.32",
+        "vendor_contract.pdf|17.5|p.28"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-02",
+      "type": "factual",
+      "seconds": 0.007292032241821289,
+      "best_score": 0.03278688524590164,
+      "top": [
+        "vendor_contract.pdf|9.7|p.23",
+        "gdpr_2016_679.pdf|Article 99(1)|p.87",
+        "vendor_contract.pdf|\u00a7 1(3)|p.8",
+        "gdpr_2016_679.pdf|Article 62(7)|p.73",
+        "vendor_contract.pdf|33.3|p.42"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-03",
+      "type": "factual",
+      "seconds": 0.007706880569458008,
+      "best_score": 0.03278688524590164,
+      "top": [
+        "vendor_contract.pdf|29.3|p.39",
+        "vendor_contract.pdf|29.1|p.38",
+        "vendor_contract.pdf|29.2|p.38",
+        "gdpr_2016_679.pdf|(171)|p.31",
+        "vendor_contract.pdf|35.3|p.43"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-04",
+      "type": "factual",
+      "seconds": 0.007838964462280273,
+      "best_score": 0.03278688524590164,
+      "top": [
+        "vendor_contract.pdf|30.1|p.39",
+        "vendor_contract.pdf|32.4|p.41",
+        "vendor_contract.pdf|35.5|p.43",
+        "vendor_contract.pdf|17.7|p.28",
+        "vendor_contract.pdf|35.7|p.44"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-05",
+      "type": "factual",
+      "seconds": 0.007052898406982422,
+      "best_score": 0.03278688524590164,
+      "top": [
+        "vendor_contract.pdf|16.3|p.27",
+        "vendor_contract.pdf|16.1|p.27",
+        "vendor_contract.pdf|16.4|p.27",
+        "vendor_contract.pdf|16.2|p.27",
+        "vendor_contract.pdf|13.1|p.25"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-06",
+      "type": "multihop",
+      "seconds": 0.008014202117919922,
+      "best_score": 0.03252247488101534,
+      "top": [
+        "vendor_contract.pdf|32.4|p.41",
+        "gdpr_2016_679.pdf|(136)|p.25",
+        "vendor_contract.pdf|35.2|p.42",
+        "vendor_contract.pdf|35.1|p.42",
+        "gdpr_2016_679.pdf|Article 65(1)|p.74"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 0.5,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-07",
+      "type": "multihop",
+      "seconds": 0.008840799331665039,
+      "best_score": 0.03278688524590164,
+      "top": [
+        "vendor_contract.pdf|17.1|p.27",
+        "vendor_contract.pdf|17.15|p.30",
+        "vendor_contract.pdf|17.4|p.28",
+        "vendor_contract.pdf|17.6|p.28",
+        "vendor_contract.pdf|17.2|p.27"
+      ],
+      "recall": {
+        "1": 0.5,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.5,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-08",
+      "type": "unanswerable",
+      "seconds": 0.007291078567504883,
+      "best_score": 0.030679156908665108,
+      "top": [
+        "vendor_contract.pdf|35.1|p.42",
+        "gdpr_2016_679.pdf|(124)|p.23",
+        "gdpr_2016_679.pdf|Article 54(1)|p.66",
+        "gdpr_2016_679.pdf|Article 60|p.71",
+        "gdpr_2016_679.pdf|(72)|p.14"
+      ]
+    },
+    {
+      "id": "sun-09",
+      "type": "unanswerable",
+      "seconds": 0.00680088996887207,
+      "best_score": 0.027443609022556388,
+      "top": [
+        "vendor_contract.pdf|6.3|p.18",
+        "vendor_contract.pdf|21.1|p.34",
+        "vendor_contract.pdf|6.1|p.17",
+        "gdpr_2016_679.pdf|(48)|p.9",
+        "vendor_contract.pdf|34.2|p.42"
+      ]
+    }
+  ],
+  "Hybrid + MiniLM": [
+    {
+      "id": "gdpr-01",
+      "type": "factual",
+      "seconds": 0.8302969932556152,
+      "best_score": 9.531373023986816,
+      "top": [
+        "gdpr_2016_679.pdf|Article 33(1)|p.52",
+        "gdpr_2016_679.pdf|(85)|p.16",
+        "gdpr_2016_679.pdf|Article 33(2)|p.52",
+        "gdpr_2016_679.pdf|Article 33(5)|p.52",
+        "gdpr_2016_679.pdf|Article 12(4)|p.40"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-02",
+      "type": "factual",
+      "seconds": 0.6791470050811768,
+      "best_score": 8.81585693359375,
+      "top": [
+        "gdpr_2016_679.pdf|Article 8(1)|p.37",
+        "gdpr_2016_679.pdf|Article 8(2)|p.38",
+        "gdpr_2016_679.pdf|Article 8(3)|p.38",
+        "gdpr_2016_679.pdf|(32)|p.6",
+        "gdpr_2016_679.pdf|(38)|p.7"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-03",
+      "type": "factual",
+      "seconds": 0.8361642360687256,
+      "best_score": 7.077942848205566,
+      "top": [
+        "gdpr_2016_679.pdf|Article 7(3)|p.37",
+        "gdpr_2016_679.pdf|(42)|p.8",
+        "gdpr_2016_679.pdf|(65)|p.12",
+        "gdpr_2016_679.pdf|Article 18(1)|p.44",
+        "gdpr_2016_679.pdf|(32)|p.6"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-04",
+      "type": "factual",
+      "seconds": 0.5464811325073242,
+      "best_score": 7.530435562133789,
+      "top": [
+        "gdpr_2016_679.pdf|Article 12(3)|p.40",
+        "gdpr_2016_679.pdf|Article 12(4)|p.40",
+        "gdpr_2016_679.pdf|(59)|p.11",
+        "gdpr_2016_679.pdf|Article 36(2)|p.54",
+        "gdpr_2016_679.pdf|Article 14(3)|p.42"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-05",
+      "type": "factual",
+      "seconds": 0.6219549179077148,
+      "best_score": -2.2401363849639893,
+      "top": [
+        "gdpr_2016_679.pdf|Article 99(2)|p.87",
+        "vendor_contract.pdf|16.1|p.27",
+        "gdpr_2016_679.pdf|Article 96|p.87",
+        "gdpr_2016_679.pdf|(171)|p.31",
+        "gdpr_2016_679.pdf|(2)|p.3"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-06",
+      "type": "factual",
+      "seconds": 0.6154623031616211,
+      "best_score": 0.6514108180999756,
+      "top": [
+        "gdpr_2016_679.pdf|Article 83(6)|p.83",
+        "gdpr_2016_679.pdf|Article 83(5)|p.83",
+        "gdpr_2016_679.pdf|Article 83(4)|p.82",
+        "gdpr_2016_679.pdf|Article 83(3)|p.82",
+        "gdpr_2016_679.pdf|(148)|p.27"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-07",
+      "type": "factual",
+      "seconds": 0.6486968994140625,
+      "best_score": 0.9742151498794556,
+      "top": [
+        "gdpr_2016_679.pdf|Article 4|p.33",
+        "gdpr_2016_679.pdf|(18)|p.3",
+        "gdpr_2016_679.pdf|Article 9(3)|p.39",
+        "gdpr_2016_679.pdf|(35)|p.6",
+        "gdpr_2016_679.pdf|Article 4|p.33"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-08",
+      "type": "multihop",
+      "seconds": 0.6793379783630371,
+      "best_score": -3.215823173522949,
+      "top": [
+        "gdpr_2016_679.pdf|Article 83(6)|p.83",
+        "gdpr_2016_679.pdf|Article 83(3)|p.82",
+        "gdpr_2016_679.pdf|Article 83(5)|p.83",
+        "gdpr_2016_679.pdf|Article 83(4)|p.82",
+        "gdpr_2016_679.pdf|(1)|p.28"
+      ],
+      "recall": {
+        "1": 0.5,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 0.5,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-09",
+      "type": "multihop",
+      "seconds": 0.7283589839935303,
+      "best_score": 4.839252471923828,
+      "top": [
+        "gdpr_2016_679.pdf|(65)|p.12",
+        "gdpr_2016_679.pdf|Article 7(3)|p.37",
+        "gdpr_2016_679.pdf|Article 17(1)|p.43",
+        "gdpr_2016_679.pdf|(42)|p.8",
+        "gdpr_2016_679.pdf|(32)|p.6"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-10",
+      "type": "unanswerable",
+      "seconds": 0.7752788066864014,
+      "best_score": -10.26885986328125,
+      "top": [
+        "gdpr_2016_679.pdf|Article 5(1)|p.36",
+        "gdpr_2016_679.pdf|(85)|p.16",
+        "gdpr_2016_679.pdf|(137)|p.25",
+        "vendor_contract.pdf|\u00a7 28|p.38",
+        "gdpr_2016_679.pdf|(39)|p.7"
+      ]
+    },
+    {
+      "id": "gdpr-11",
+      "type": "unanswerable",
+      "seconds": 0.724531888961792,
+      "best_score": -2.97385835647583,
+      "top": [
+        "gdpr_2016_679.pdf|Article 58(2)|p.70",
+        "gdpr_2016_679.pdf|Article 83(2)|p.82",
+        "gdpr_2016_679.pdf|(148)|p.27",
+        "gdpr_2016_679.pdf|Article 83(3)|p.82",
+        "gdpr_2016_679.pdf|(1)|p.28"
+      ]
+    },
+    {
+      "id": "sun-01",
+      "type": "factual",
+      "seconds": 0.7042853832244873,
+      "best_score": 5.994943618774414,
+      "top": [
+        "vendor_contract.pdf|17.4|p.28",
+        "vendor_contract.pdf|17.3|p.27",
+        "vendor_contract.pdf|17.2|p.27",
+        "vendor_contract.pdf|17.13|p.30",
+        "vendor_contract.pdf|17.7|p.28"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-02",
+      "type": "factual",
+      "seconds": 0.7352011203765869,
+      "best_score": 5.773315906524658,
+      "top": [
+        "vendor_contract.pdf|9.7|p.23",
+        "vendor_contract.pdf|\u00a7 1(3)|p.8",
+        "vendor_contract.pdf|3.11|p.15",
+        "vendor_contract.pdf|33.3|p.42",
+        "gdpr_2016_679.pdf|Article 96|p.87"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-03",
+      "type": "factual",
+      "seconds": 0.7071638107299805,
+      "best_score": 8.732442855834961,
+      "top": [
+        "vendor_contract.pdf|29.3|p.39",
+        "vendor_contract.pdf|29.1|p.38",
+        "vendor_contract.pdf|29.2|p.38",
+        "vendor_contract.pdf|17.4|p.28",
+        "vendor_contract.pdf|29.2|p.38"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-04",
+      "type": "factual",
+      "seconds": 0.7361130714416504,
+      "best_score": 3.014066696166992,
+      "top": [
+        "vendor_contract.pdf|30.1|p.39",
+        "vendor_contract.pdf|17.7|p.28",
+        "vendor_contract.pdf|35.5|p.43",
+        "vendor_contract.pdf|32.4|p.41",
+        "vendor_contract.pdf|35.7|p.44"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-05",
+      "type": "factual",
+      "seconds": 0.5680868625640869,
+      "best_score": 6.65410852432251,
+      "top": [
+        "vendor_contract.pdf|16.3|p.27",
+        "vendor_contract.pdf|16.4|p.27",
+        "vendor_contract.pdf|16.1|p.27",
+        "vendor_contract.pdf|17.14|p.30",
+        "vendor_contract.pdf|17.17|p.32"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-06",
+      "type": "multihop",
+      "seconds": 0.6836459636688232,
+      "best_score": 2.1562843322753906,
+      "top": [
+        "vendor_contract.pdf|32.4|p.41",
+        "vendor_contract.pdf|35.2|p.42",
+        "vendor_contract.pdf|35.1|p.42",
+        "gdpr_2016_679.pdf|Article 65(2)|p.75",
+        "gdpr_2016_679.pdf|Article 65(4)|p.75"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-07",
+      "type": "multihop",
+      "seconds": 0.6331021785736084,
+      "best_score": 3.646196126937866,
+      "top": [
+        "vendor_contract.pdf|17.1|p.27",
+        "vendor_contract.pdf|17.4|p.28",
+        "vendor_contract.pdf|17.7|p.28",
+        "vendor_contract.pdf|17.15|p.30",
+        "vendor_contract.pdf|17.6|p.28"
+      ],
+      "recall": {
+        "1": 0.5,
+        "3": 0.5,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.5,
+        "3": 0.5,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-08",
+      "type": "unanswerable",
+      "seconds": 0.713698148727417,
+      "best_score": -4.987950801849365,
+      "top": [
+        "vendor_contract.pdf|35.1|p.42",
+        "vendor_contract.pdf|35.7|p.44",
+        "vendor_contract.pdf|2.9|p.12",
+        "gdpr_2016_679.pdf|(45)|p.8",
+        "gdpr_2016_679.pdf|(138)|p.25"
+      ]
+    },
+    {
+      "id": "sun-09",
+      "type": "unanswerable",
+      "seconds": 0.5596389770507812,
+      "best_score": -1.6178629398345947,
+      "top": [
+        "vendor_contract.pdf|34.2|p.42",
+        "vendor_contract.pdf|3.6|p.14",
+        "vendor_contract.pdf|3.16|p.15",
+        "vendor_contract.pdf|33.1|p.42",
+        "vendor_contract.pdf|3.7|p.14"
+      ]
+    }
+  ],
+  "Hybrid + bge-reranker": [
+    {
+      "id": "gdpr-01",
+      "type": "factual",
+      "seconds": 4.886841773986816,
+      "best_score": 8.964370727539062,
+      "top": [
+        "gdpr_2016_679.pdf|Article 33(1)|p.52",
+        "gdpr_2016_679.pdf|(85)|p.16",
+        "gdpr_2016_679.pdf|Article 33(2)|p.52",
+        "gdpr_2016_679.pdf|Article 33(5)|p.52",
+        "gdpr_2016_679.pdf|Article 12(4)|p.40"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-02",
+      "type": "factual",
+      "seconds": 4.8141748905181885,
+      "best_score": 7.3664727210998535,
+      "top": [
+        "gdpr_2016_679.pdf|Article 8(1)|p.37",
+        "gdpr_2016_679.pdf|Article 8(3)|p.38",
+        "gdpr_2016_679.pdf|Article 8(2)|p.38",
+        "gdpr_2016_679.pdf|Article 21(5)|p.46",
+        "gdpr_2016_679.pdf|(32)|p.6"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-03",
+      "type": "factual",
+      "seconds": 6.679562091827393,
+      "best_score": 6.17805290222168,
+      "top": [
+        "gdpr_2016_679.pdf|Article 7(3)|p.37",
+        "gdpr_2016_679.pdf|(65)|p.12",
+        "gdpr_2016_679.pdf|Article 13(2)|p.41",
+        "gdpr_2016_679.pdf|Article 14(2)|p.42",
+        "gdpr_2016_679.pdf|(42)|p.8"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-04",
+      "type": "factual",
+      "seconds": 3.991974115371704,
+      "best_score": 5.203411102294922,
+      "top": [
+        "gdpr_2016_679.pdf|Article 12(3)|p.40",
+        "gdpr_2016_679.pdf|Article 12(4)|p.40",
+        "gdpr_2016_679.pdf|(59)|p.11",
+        "gdpr_2016_679.pdf|Article 36(2)|p.54",
+        "gdpr_2016_679.pdf|Article 14(3)|p.42"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-05",
+      "type": "factual",
+      "seconds": 5.252341985702515,
+      "best_score": 3.0944318771362305,
+      "top": [
+        "gdpr_2016_679.pdf|Article 99(2)|p.87",
+        "gdpr_2016_679.pdf||p.1",
+        "gdpr_2016_679.pdf|(2)|p.3",
+        "gdpr_2016_679.pdf|Article 14(3)|p.42",
+        "gdpr_2016_679.pdf|(171)|p.31"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-06",
+      "type": "factual",
+      "seconds": 6.164592981338501,
+      "best_score": -1.7629759311676025,
+      "top": [
+        "gdpr_2016_679.pdf|Article 83(5)|p.83",
+        "gdpr_2016_679.pdf|Article 83(6)|p.83",
+        "gdpr_2016_679.pdf|Article 83(4)|p.82",
+        "gdpr_2016_679.pdf|Article 83(3)|p.82",
+        "gdpr_2016_679.pdf|Article 58(2)|p.70"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-07",
+      "type": "factual",
+      "seconds": 5.51272177696228,
+      "best_score": 5.309376239776611,
+      "top": [
+        "gdpr_2016_679.pdf|Article 4|p.33",
+        "gdpr_2016_679.pdf|Article 4|p.34",
+        "gdpr_2016_679.pdf|Article 9(3)|p.39",
+        "gdpr_2016_679.pdf|Article 25(2)|p.48",
+        "gdpr_2016_679.pdf|Article 4|p.33"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-08",
+      "type": "multihop",
+      "seconds": 4.788206100463867,
+      "best_score": -2.9937610626220703,
+      "top": [
+        "gdpr_2016_679.pdf|Article 83(5)|p.83",
+        "gdpr_2016_679.pdf|Article 83(6)|p.83",
+        "gdpr_2016_679.pdf|Article 83(4)|p.82",
+        "gdpr_2016_679.pdf|(1)|p.28",
+        "gdpr_2016_679.pdf|Article 83(3)|p.82"
+      ],
+      "recall": {
+        "1": 0.5,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.5,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-09",
+      "type": "multihop",
+      "seconds": 4.352613925933838,
+      "best_score": 4.036491870880127,
+      "top": [
+        "gdpr_2016_679.pdf|Article 17(1)|p.43",
+        "gdpr_2016_679.pdf|(65)|p.12",
+        "gdpr_2016_679.pdf|Article 7(3)|p.37",
+        "gdpr_2016_679.pdf|(42)|p.8",
+        "gdpr_2016_679.pdf|(111)|p.21"
+      ],
+      "recall": {
+        "1": 0.5,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.5,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "gdpr-10",
+      "type": "unanswerable",
+      "seconds": 4.133433103561401,
+      "best_score": -4.421792030334473,
+      "top": [
+        "gdpr_2016_679.pdf|Article 35(7)|p.54",
+        "gdpr_2016_679.pdf|Article 12(4)|p.40",
+        "gdpr_2016_679.pdf|(65)|p.12",
+        "gdpr_2016_679.pdf|(83)|p.16",
+        "gdpr_2016_679.pdf|(19)|p.4"
+      ]
+    },
+    {
+      "id": "gdpr-11",
+      "type": "unanswerable",
+      "seconds": 4.407776832580566,
+      "best_score": -5.205172061920166,
+      "top": [
+        "gdpr_2016_679.pdf|Article 58(2)|p.70",
+        "gdpr_2016_679.pdf|(1)|p.28",
+        "gdpr_2016_679.pdf|(150)|p.27",
+        "gdpr_2016_679.pdf|Article 45(2)|p.61",
+        "gdpr_2016_679.pdf|Article 83(2)|p.82"
+      ]
+    },
+    {
+      "id": "sun-01",
+      "type": "factual",
+      "seconds": 4.0522801876068115,
+      "best_score": 5.7255425453186035,
+      "top": [
+        "vendor_contract.pdf|17.4|p.28",
+        "vendor_contract.pdf|17.3|p.27",
+        "vendor_contract.pdf|17.2|p.27",
+        "vendor_contract.pdf|17.7|p.28",
+        "vendor_contract.pdf|17.13|p.30"
+      ],
+      "recall": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-02",
+      "type": "factual",
+      "seconds": 4.4441258907318115,
+      "best_score": 1.3996630907058716,
+      "top": [
+        "vendor_contract.pdf|9.7|p.23",
+        "vendor_contract.pdf|\u00a7 1(3)|p.8",
+        "vendor_contract.pdf|33.3|p.42",
+        "gdpr_2016_679.pdf|Article 99(2)|p.87",
+        "gdpr_2016_679.pdf|Article 92(5)|p.86"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-03",
+      "type": "factual",
+      "seconds": 4.501366138458252,
+      "best_score": 7.212665557861328,
+      "top": [
+        "vendor_contract.pdf|29.3|p.39",
+        "vendor_contract.pdf|29.1|p.38",
+        "gdpr_2016_679.pdf|Article 28(3)|p.49",
+        "vendor_contract.pdf|29.2|p.38",
+        "vendor_contract.pdf|29.2|p.38"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-04",
+      "type": "factual",
+      "seconds": 6.137112855911255,
+      "best_score": -1.4322309494018555,
+      "top": [
+        "vendor_contract.pdf|30.1|p.39",
+        "gdpr_2016_679.pdf|Article 28(9)|p.50",
+        "gdpr_2016_679.pdf|Article 57(2)|p.69",
+        "vendor_contract.pdf|30.4|p.40",
+        "gdpr_2016_679.pdf|Article 64(4)|p.74"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-05",
+      "type": "factual",
+      "seconds": 3.5864779949188232,
+      "best_score": 2.8017122745513916,
+      "top": [
+        "vendor_contract.pdf|16.3|p.27",
+        "vendor_contract.pdf|16.4|p.27",
+        "vendor_contract.pdf|33.2|p.42",
+        "vendor_contract.pdf|17.17|p.32",
+        "vendor_contract.pdf|13.5|p.25"
+      ],
+      "recall": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 1.0,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-06",
+      "type": "multihop",
+      "seconds": 4.112297296524048,
+      "best_score": -1.0175318717956543,
+      "top": [
+        "vendor_contract.pdf|35.1|p.42",
+        "vendor_contract.pdf|35.2|p.42",
+        "vendor_contract.pdf|2.9|p.12",
+        "vendor_contract.pdf|32.4|p.41",
+        "gdpr_2016_679.pdf|Article 65(2)|p.75"
+      ],
+      "recall": {
+        "1": 0.5,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.5,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-07",
+      "type": "multihop",
+      "seconds": 5.60910177230835,
+      "best_score": 1.638153076171875,
+      "top": [
+        "vendor_contract.pdf|17.1|p.27",
+        "vendor_contract.pdf|17.7|p.28",
+        "vendor_contract.pdf|17.15|p.30",
+        "vendor_contract.pdf|17.2|p.27",
+        "vendor_contract.pdf|17.4|p.28"
+      ],
+      "recall": {
+        "1": 0.5,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      },
+      "recall_strict": {
+        "1": 0.5,
+        "3": 1.0,
+        "5": 1.0,
+        "10": 1.0
+      }
+    },
+    {
+      "id": "sun-08",
+      "type": "unanswerable",
+      "seconds": 5.077348947525024,
+      "best_score": -2.914745330810547,
+      "top": [
+        "gdpr_2016_679.pdf|Article 47(2)|p.63",
+        "gdpr_2016_679.pdf|(153)|p.28",
+        "gdpr_2016_679.pdf|(135)|p.25",
+        "gdpr_2016_679.pdf|Article 54(1)|p.66",
+        "gdpr_2016_679.pdf|Article 6(3)|p.36"
+      ]
+    },
+    {
+      "id": "sun-09",
+      "type": "unanswerable",
+      "seconds": 3.4769740104675293,
+      "best_score": -2.382884979248047,
+      "top": [
+        "vendor_contract.pdf|33.1|p.42",
+        "vendor_contract.pdf|34.1|p.42",
+        "vendor_contract.pdf|7.7|p.20",
+        "vendor_contract.pdf|10.1|p.23",
+        "vendor_contract.pdf|3.13|p.15"
+      ]
+    }
+  ]
+}
