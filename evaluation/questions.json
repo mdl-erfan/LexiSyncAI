@@ -1,0 +1,102 @@
+[
+  {"id": "gdpr-01", "doc": "gdpr_2016_679.pdf", "type": "factual",
+   "question": "Within how many hours must a controller notify a personal data breach to the supervisory authority?",
+   "gold": [{"page": 52, "section": "Article 33(1)"}],
+   "answer": "Without undue delay and, where feasible, not later than 72 hours after becoming aware of it."},
+
+  {"id": "gdpr-02", "doc": "gdpr_2016_679.pdf", "type": "factual",
+   "question": "From what age can a child consent on their own to information society services?",
+   "gold": [{"page": 37, "section": "Article 8(1)"}],
+   "answer": "16; Member States may set a lower age, but not below 13."},
+
+  {"id": "gdpr-03", "doc": "gdpr_2016_679.pdf", "type": "factual",
+   "question": "Can a data subject withdraw their consent, and does that make earlier processing unlawful?",
+   "gold": [{"page": 37, "section": "Article 7(3)"}],
+   "answer": "Yes, at any time; withdrawal does not affect the lawfulness of processing before the withdrawal."},
+
+  {"id": "gdpr-04", "doc": "gdpr_2016_679.pdf", "type": "factual",
+   "question": "How long does a controller have to respond to a data subject's request, and can this be extended?",
+   "gold": [{"page": 40, "section": "Article 12(3)"}],
+   "answer": "Within one month of receipt; extendable by two further months where necessary."},
+
+  {"id": "gdpr-05", "doc": "gdpr_2016_679.pdf", "type": "factual",
+   "question": "From which date does the GDPR apply?",
+   "gold": [{"page": 87, "section": "Article 99(2)"}],
+   "answer": "25 May 2018."},
+
+  {"id": "gdpr-06", "doc": "gdpr_2016_679.pdf", "type": "factual",
+   "question": "How much can a company be fined for ignoring an order from the regulator?",
+   "gold": [{"page": 83, "section": "Article 83(6)"}],
+   "answer": "Up to EUR 20 000 000 or, for an undertaking, up to 4% of total worldwide annual turnover, whichever is higher."},
+
+  {"id": "gdpr-07", "doc": "gdpr_2016_679.pdf", "type": "factual",
+   "question": "How does the GDPR define personal data?",
+   "gold": [{"page": 33, "section": "Article 4"}],
+   "answer": "Any information relating to an identified or identifiable natural person (the data subject)."},
+
+  {"id": "gdpr-08", "doc": "gdpr_2016_679.pdf", "type": "multihop",
+   "question": "What is the maximum fine a company can receive, and which kinds of violations trigger the higher fine?",
+   "gold": [{"page": 82, "section": "Article 83(4)"}, {"page": 83, "section": "Article 83(5)"}],
+   "answer": "Two tiers: up to EUR 10M / 2% of turnover (Art. 83(4)) and up to EUR 20M / 4% (Art. 83(5)); the higher tier covers e.g. the basic principles and consent, data subject rights and international transfers."},
+
+  {"id": "gdpr-09", "doc": "gdpr_2016_679.pdf", "type": "multihop",
+   "question": "If a data subject withdraws consent, can they also demand that their data be erased?",
+   "gold": [{"page": 37, "section": "Article 7(3)"}, {"page": 44, "section": "Article 17(1)"}],
+   "answer": "Yes: consent can be withdrawn at any time (Art. 7(3)), and erasure applies where consent is withdrawn and there is no other legal ground (Art. 17(1)(b))."},
+
+  {"id": "gdpr-10", "doc": "gdpr_2016_679.pdf", "type": "unanswerable",
+   "question": "For how many days may CCTV footage be stored under the GDPR?",
+   "gold": [],
+   "answer": "Not specified; the GDPR only sets the general storage-limitation principle (Art. 5(1)(e)) and does not mention CCTV."},
+
+  {"id": "gdpr-11", "doc": "gdpr_2016_679.pdf", "type": "unanswerable",
+   "question": "What fine did the Irish data protection authority impose on Meta in 2023?",
+   "gold": [],
+   "answer": "Not in the document."},
+
+  {"id": "sun-01", "doc": "vendor_contract.pdf", "type": "factual",
+   "question": "Can Sunrise extend the agreement after the initial term, and for how long?",
+   "gold": [{"page": 27, "section": "17.3"}],
+   "answer": "Yes, Sunrise has two option rights to prolong the agreement for two additional terms of ten years each."},
+
+  {"id": "sun-02", "doc": "vendor_contract.pdf", "type": "factual",
+   "question": "Which events count as force majeure under the agreement?",
+   "gold": [{"page": 23, "section": "9.7"}],
+   "answer": "Events beyond a party's reasonable control, including natural disasters such as fire, flood, earthquake, wars, terrorist attacks, civil unrest and strikes."},
+
+  {"id": "sun-03", "doc": "vendor_contract.pdf", "type": "factual",
+   "question": "Do the confidentiality obligations continue after the agreement ends?",
+   "gold": [{"page": 39, "section": "29.3"}],
+   "answer": "Yes, they remain in effect after termination."},
+
+  {"id": "sun-04", "doc": "vendor_contract.pdf", "type": "factual",
+   "question": "Does an e-mail count as a written notice under the agreement?",
+   "gold": [{"page": 39, "section": "30.1"}],
+   "answer": "Yes, 'in writing' includes letters or e-mail, unless the agreement or mandatory law requires another form."},
+
+  {"id": "sun-05", "doc": "vendor_contract.pdf", "type": "factual",
+   "question": "What is the late-payment interest rate?",
+   "gold": [{"page": 27, "section": "16.3"}],
+   "answer": "The rate is redacted ([***]% p.a.); the clause allows late-payment interest after a written reminder, but the figure is not disclosed.",
+   "note": "Redacted value: the system must say the number is redacted, not invent one."},
+
+  {"id": "sun-06", "doc": "vendor_contract.pdf", "type": "multihop",
+   "question": "Which law governs the agreement, and where and how are disputes resolved?",
+   "gold": [{"page": 42, "section": "35.1"}, {"page": 43, "section": "35.2"}],
+   "answer": "Substantive Swiss law (without IPRG; CISG excluded); arbitration under the Swiss Rules, three arbitrators with a Swiss law degree, seat in Zurich, in English."},
+
+  {"id": "sun-07", "doc": "vendor_contract.pdf", "type": "multihop",
+   "question": "How long is the initial term, and can either party terminate it early?",
+   "gold": [{"page": 27, "section": "17.1"}, {"page": 30, "section": "17.15"}],
+   "answer": "Twenty years from the Closing Date with ordinary termination excluded (17.1), but either party may terminate with immediate effect for serious reasons such as insolvency (17.15)."},
+
+  {"id": "sun-08", "doc": "vendor_contract.pdf", "type": "unanswerable",
+   "question": "What is the governing law of the subcontractor agreement?",
+   "gold": [],
+   "answer": "Not in the document; the agreement does not mention a subcontractor agreement."},
+
+  {"id": "sun-09", "doc": "vendor_contract.pdf", "type": "unanswerable",
+   "question": "How many employees does TowerCo have?",
+   "gold": [],
+   "answer": "Not in the document."}
+]
