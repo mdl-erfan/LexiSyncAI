@@ -1,5 +1,7 @@
-"""Step 7g: run answer_question() on every evaluation question and show abstention behaviour."""
+"""Step 9: final answer-level evaluation on all questions; saves answers, citations and run metadata for manual labelling."""
+import datetime
 import json
+import platform
 from pathlib import Path
 
 from generation.answer import answer_question
@@ -22,6 +24,10 @@ def main() -> None:
     index = RerankedIndex(HybridIndex(BM25Index(chunks), DenseIndex(chunks)), Reranker())
     doc_names = [p.name for p in paths]
 
+    # Warm-up: run the full pipeline once (embedder, reranker, LLM) so
+    # one-time loading costs are not counted in the first question's latency.
+    answer_question("What is this document about?", index, doc_names)
+
     rows = []
     for q in questions:
         a = answer_question(q["question"], index, doc_names)
@@ -32,7 +38,10 @@ def main() -> None:
             "id": q["id"], "type": q["type"], "question": q["question"],
             "badge": a.badge.value, "abstained": a.abstained, "reason": a.reason,
             "top_score": a.top_score, "latency_s": round(a.latency_s, 2),
-            "answer": a.text, "citations": [c.label for c in a.citations],
+            "answer": a.text,
+            "citations": [{"n": c.number, "label": c.label,
+                           "pages": [c.page_start, c.page_end], "text": c.text}
+                          for c in a.citations],
             "invalid_citations": a.invalid_citations, "expected": q["answer"],
         })
 
@@ -41,8 +50,15 @@ def main() -> None:
     print(f"\nAbstained on unanswerable: {sum(r['abstained'] for r in unans)}/{len(unans)}")
     print(f"Wrongly abstained on answerable: {sum(r['abstained'] for r in ans)}/{len(ans)}")
 
+    meta = {
+        "run_at": datetime.datetime.now().isoformat(timespec="seconds"),
+        "llm": "llama3.2 (Ollama), temperature 0, seed 42",
+        "retrieval": "BM25 + bge-small (RRF) -> MiniLM reranker, k=5",
+        "machine": platform.platform(),
+        "conditions": "charger in, Low Power Mode off, warm-up call before timing",
+    }
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(rows, indent=2))
+    OUT.write_text(json.dumps({"meta": meta, "rows": rows}, indent=2))
     print(f"Saved to {OUT.relative_to(ROOT)}")
 
 

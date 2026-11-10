@@ -20,7 +20,7 @@ Final project for Deep Learning & GenAI (DA3), SRH Hochschule Hamburg.
 - [x] Step 6: Hybrid retrieval (RRF) + cross-encoder reranker, recall@k per configuration
 - [x] Step 7: Grounded answers with page/clause citations, abstention, confidence badge (Llama 3.2 via Ollama)
 - [x] Step 8: Streamlit UI (upload, detected structure, cited page side by side)
-- [ ] Step 9: Evaluation (15+ held-out questions, no-retrieval vs retrieval comparison)
+- [x] Step 9: Evaluation (20 held-out questions: correctness, citation precision, abstention, latency; dense-only vs hybrid comparison)
 - [ ] Step 10: Packaging (Docker/Makefile, pinned dependencies, fixed seeds)
 
 ## Architecture
@@ -179,6 +179,8 @@ for c in answer.citations:
 ```bash
 python -m evaluation.evaluate_retrieval   # recall@k per configuration -> evaluation/results/retrieval.json
 python -m evaluation.evaluate_answers     # answers, badges, abstention -> evaluation/results/answers.json
+python -m evaluation.make_labels          # review.md + empty labels.json (never overwrites labels)
+python -m evaluation.score_answers        # labels -> scores per question type -> evaluation/results/scores.json
 ```
 
 Each ingestion stage also has its own command-line check:
@@ -271,7 +273,47 @@ seed 42, top 5 passages):
 Layer 1 (score) refused 2 of the 4 unanswerable questions in about 1 s without
 calling the LLM; Layer 2 (LLM check) caught the other 2. A first manual check
 of run 3 found 11 of 16 answers correct, 3 correct with a flaw and 2 wrong or
-poor; the full evaluation follows in Step 9.
+poor; the final labelled evaluation is below.
+
+### Final answer evaluation (Step 9)
+
+One final run of the 20 questions in fixed conditions (charger in, Low Power
+Mode off, other apps closed, one warm-up call before timing), saved as
+`evaluation/results/answers_final.json`. Every answer and every cited passage
+was then labelled by hand (`labels.json`) and scored with `score_answers.py`.
+
+**Labelling rules:** *correct* = every fact in the expected answer present,
+nothing false; *partly* = core right but a part missing or a minor detail
+wrong; *wrong* = core claim false. A citation is *supported* if the cited
+passage contains what the sentence carrying `[n]` claims.
+
+| Type | n | Correct | Partly | Wrong | Citation precision | Unanswerable refused | Latency mean / median / max (s) |
+|---|---|---|---|---|---|---|---|
+| Factual | 12 | 10/12 (0.83) | 2 | 0 | 13/15 (0.87) | – | 10.2 / 10.3 / 18.8 |
+| Multi-hop | 4 | 1/4 (0.25) | 2 | 1 | 4/6 (0.67) | – | 8.0 / 8.2 / 10.0 |
+| Unanswerable | 4 | – | – | – | – | 4/4 (1.00) | 4.5 / 3.5 / 10.2 |
+| **All** | 20 | **11/16 (0.69)** | 4 | 1 | **17/21 (0.81)** | **4/4 (1.00)** | 8.6 / 9.1 / 18.8 |
+
+No answerable question was wrongly refused (0/16).
+
+**Findings**
+- Factual questions are reliable: 10/12 correct, none wrong.
+- Multi-hop is the main weakness: retrieval finds the gold pages (recall@5 = 1.00),
+  but the 3B model often uses only one of the two passages.
+- Latency is mostly generation: retrieval + reranking ≈ 0.8 s, the rest grows
+  with answer length. The same run under uncontrolled conditions averaged
+  15.1 s instead of 8.6 s, with identical answers.
+
+**Honest failures**
+- **gdpr-08 (wrong):** says the maximum fine is 2% and lists the Art. 83(4)
+  violations as the higher tier; Art. 83(5) is never used.
+- **sun-07 (partly):** "neither party can terminate early" is false; only
+  ordinary termination is excluded (§17.15 was never retrieved).
+- **sun-03:** right answer, but the cited passage (§17.4) says nothing about
+  confidentiality: correct, but not grounded.
+- **gdpr-06:** the 4% figure is cited to Art. 83(4), the 2% tier.
+- **sun-05:** copies "[***]% p.a." without saying the rate is redacted.
+- **Badge vs correctness:** gdpr-05 is correct with LOW; gdpr-09 is incomplete with HIGH.
 
 ### Latency (Intel MacBook Pro, CPU only)
 
@@ -280,7 +322,7 @@ poor; the full evaluation follows in Step 9.
 | BM25 index, both documents (826 chunks) | < 1 s |
 | Dense index, both documents (826 chunks) | ≈ 74 s |
 | Retrieval + reranking per question | ≈ 0.7 s |
-| Full answer per question | ≈ 10–25 s, depending on the laptop's power state |
+| Full answer per question | 8.6 s mean, 9.1 s median (fixed conditions); 15.1 s mean on battery / busy laptop |
 | Refusal by Layer 1 | ≈ 1 s |
 
 ## Known issues
@@ -298,6 +340,10 @@ poor; the full evaluation follows in Step 9.
 - Header detection treats digits as interchangeable (`L 119/82` = `L 119/83`),
   so on short documents, body lines that differ only by a number could be
   mistaken for headers. Not observed on the test corpus.
+- Grouped citation markers like `[3, 6]` are not detected by `generation/citations.py`
+  (it only matches `[n]`), so an invented citation inside such a group is not flagged.
+- The evaluation is small (4 multi-hop, 4 unanswerable questions) and was labelled by
+  one person on one run, so the ratios are indicative only.
 
 ## Project layout
 

@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "run_at": "2026-11-10T15:13:12",
+    "llm": "llama3.2 (Ollama), temperature 0, seed 42",
+    "retrieval": "BM25 + bge-small (RRF) -> MiniLM reranker, k=5",
+    "machine": "macOS-10.16-x86_64-i386-64bit",
+    "conditions": "charger in, Low Power Mode off, warm-up call before timing"
+  },
+  "scores": {
+    "factual": {
+      "n": 12,
+      "answerable": 12,
+      "correct": 10,
+      "partly": 2,
+      "wrong": 0,
+      "wrongly_refused": 0,
+      "citations": 15,
+      "citations_supported": 13,
+      "unanswerable": 0,
+      "unanswerable_refused": 0,
+      "latency_mean": 10.2,
+      "latency_median": 10.3,
+      "latency_max": 18.8
+    },
+    "multihop": {
+      "n": 4,
+      "answerable": 4,
+      "correct": 1,
+      "partly": 2,
+      "wrong": 1,
+      "wrongly_refused": 0,
+      "citations": 6,
+      "citations_supported": 4,
+      "unanswerable": 0,
+      "unanswerable_refused": 0,
+      "latency_mean": 8.0,
+      "latency_median": 8.2,
+      "latency_max": 10.0
+    },
+    "unanswerable": {
+      "n": 4,
+      "answerable": 0,
+      "correct": 0,
+      "partly": 0,
+      "wrong": 0,
+      "wrongly_refused": 0,
+      "citations": 0,
+      "citations_supported": 0,
+      "unanswerable": 4,
+      "unanswerable_refused": 4,
+      "latency_mean": 4.5,
+      "latency_median": 3.5,
+      "latency_max": 10.2
+    },
+    "all": {
+      "n": 20,
+      "answerable": 16,
+      "correct": 11,
+      "partly": 4,
+      "wrong": 1,
+      "wrongly_refused": 0,
+      "citations": 21,
+      "citations_supported": 17,
+      "unanswerable": 4,
+      "unanswerable_refused": 4,
+      "latency_mean": 8.6,
+      "latency_median": 9.1,
+      "latency_max": 18.8
+    }
+  }
+}
