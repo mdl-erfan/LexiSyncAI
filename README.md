@@ -1,6 +1,6 @@
 # LexiSyncAI
 
-Evidence-grounded legal document analyst: upload 2–5 legal PDFs, ask questions,
+Evidence-grounded legal document analyst: upload 1–5 legal PDFs, ask questions,
 and get plain-language answers with page and clause citations, or an explicit
 "insufficient evidence" when the documents don't support an answer.
 
@@ -23,10 +23,15 @@ Final project for Deep Learning & GenAI (DA3), SRH Hochschule Hamburg.
 - [x] Step 9: Evaluation (20 held-out questions: correctness, citation precision, abstention, latency; dense-only vs hybrid comparison)
 - [ ] Step 10: Packaging and presentation
   - [x] 10.1: Makefile (one-command run), pinned dependencies, fixed seeds
-  - [ ] 10.2: One-page architecture diagram
-  - [ ] 10.3: Slides and rehearsal on an unseen PDF
+  - [x] 10.2: One-page architecture diagram (`docs/architecture.png`)
+  - [x] 10.3: Test on unseen PDFs; upload opened to 1–5 PDFs for the exam demo
+  - [ ] 10.4: Slides and a timed demo rehearsal
 
 ## Architecture
+
+![LexiSyncAI architecture](docs/architecture.png)
+
+The same pipeline in short:
 
 ```
 PDF -> parser -> cleaner -> chunker -> chunks
@@ -101,7 +106,7 @@ refused. Refusals name the documents searched.
 
 | Module | What it does |
 |---|---|
-| `main.py` | Page layout: upload 2–5 PDFs, index the case, show the detected structure, ask a question, show the answer. |
+| `main.py` | Page layout: upload 1–5 PDFs, index the case, show the detected structure, ask a question, show the answer. |
 | `state.py` | Models loaded once (`st.cache_resource`), Ollama warm-up at start, uploads saved to `data/raw/uploads/case_<timestamp>/`, index building. |
 | `views.py` | Structure cards (pages, sections, scanned pages flagged), answer with confidence badge, cited passages and rendered PDF pages side by side, refusal view with the documents searched and the abstention layer. |
 
@@ -241,7 +246,7 @@ The unit tests generate their own small PDFs and use fake models, so they run on
 any machine without the corpus, a model download or Ollama.
 `test_corpus.py` skips itself if the PDFs are not in `data/raw/`.
 
-## Results so far
+## Results
 
 ### Ingestion
 
@@ -346,6 +351,16 @@ No answerable question was wrongly refused (0/16).
 | Full answer per question | 8.6 s mean, 9.1 s median (fixed conditions); 15.1 s mean on battery / busy laptop |
 | Refusal by Layer 1 | ≈ 1 s |
 
+### Test on unseen documents
+
+To prepare for the exam demo, the app was tested on two public EU regulations that were
+not used during development or evaluation: Regulation (EU) 2026/2387 (AGILE defence
+innovation programme, 25 pages) and Regulation (EU) 2026/1818 (welfare of dogs and
+cats, 49 pages). Both were uploaded, indexed and questioned in the app, and the
+pipeline worked end to end. This test was not labelled, so it is not part of the
+numbers above. Both documents share the GDPR's EUR-Lex layout, so they test new
+content rather than a new document format.
+
 ## Known issues
 
 - The confidence badge measures retrieval, not correctness: a strongly matching
@@ -370,6 +385,7 @@ No answerable question was wrongly refused (0/16).
 
 ```
 Makefile      One-command setup, tests, evaluation and app
+docs/         Architecture diagram
 ingestion/    PDF parsing, header/footer cleaning, clause-aware chunking, pipeline
 retrieval/    Tokenizer, BM25, dense index, hybrid (RRF), cross-encoder reranker
 generation/   Prompt, LLM call, citations, confidence bands, answer_question()
