@@ -19,15 +19,6 @@ class Citation:
     doc_name: str = "" # which PDF the passage comes from, to render its page
 
 
-@dataclass
-class Citation:
-    number: int        # the [n] used in the answer text
-    label: str         # "gdpr_2016_679.pdf, Article 83(4), p. 82"
-    text: str          # the cited passage, for the side-by-side view
-    page_start: int
-    page_end: int
-    doc_name: str = "" # which PDF the passage comes from, to render its page
-
 
 @dataclass
 class Answer:

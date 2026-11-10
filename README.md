@@ -21,7 +21,10 @@ Final project for Deep Learning & GenAI (DA3), SRH Hochschule Hamburg.
 - [x] Step 7: Grounded answers with page/clause citations, abstention, confidence badge (Llama 3.2 via Ollama)
 - [x] Step 8: Streamlit UI (upload, detected structure, cited page side by side)
 - [x] Step 9: Evaluation (20 held-out questions: correctness, citation precision, abstention, latency; dense-only vs hybrid comparison)
-- [ ] Step 10: Packaging (Docker/Makefile, pinned dependencies, fixed seeds)
+- [ ] Step 10: Packaging and presentation
+  - [x] 10.1: Makefile (one-command run), pinned dependencies, fixed seeds
+  - [ ] 10.2: One-page architecture diagram
+  - [ ] 10.3: Slides and rehearsal on an unseen PDF
 
 ## Architecture
 
@@ -107,23 +110,38 @@ don't rebuild it.
 
 ## Setup
 
+Install [Ollama](https://ollama.com) and start it. Then, from the repository root:
+
 ```bash
 conda create -n lexiSyncAI python=3.12 -y
 conda activate lexiSyncAI
-pip install -r requirements.txt
+make setup      # pinned packages + Llama 3.2 model
+make test       # 117 automated tests
+make app        # start the UI
 ```
 
-Install [Ollama](https://ollama.com), start it, and download the model once:
+Run `make` alone to list all commands:
 
-```bash
-ollama pull llama3.2
-```
+| Command | What it does |
+|---|---|
+| `make setup` | Install the pinned Python packages and download Llama 3.2 (Ollama) |
+| `make test` | Run the automated tests |
+| `make eval` | Run the retrieval and answer evaluation (several minutes) |
+| `make score` | Rebuild the results table from the labelled final run |
+| `make app` | Start the Streamlit UI |
 
-All Python dependencies are pinned in `requirements.txt`.
+The conda environment has to be created and activated first, because `make`
+runs every command in a new shell and cannot activate it.
+
+A Makefile is used instead of Docker: Ollama runs on the host, because running
+the LLM inside Docker on macOS has no GPU/Metal access and is much slower.
+
+All Python dependencies are pinned in `requirements.txt`; the LLM runs with
+temperature 0 and seed 42, so answers are reproducible.
 
 ## Test corpus
 
-Place the PDFs in `data/raw/` (they are not committed):
+The two test PDFs are included in `data/raw/` (both are public documents):
 
 | File | Source |
 |---|---|
@@ -175,6 +193,9 @@ for c in answer.citations:
 ```
 
 **Evaluate:**
+
+`make eval` runs both evaluations; `make score` rebuilds the results table from
+the labelled final run. The individual steps:
 
 ```bash
 python -m evaluation.evaluate_retrieval   # recall@k per configuration -> evaluation/results/retrieval.json
@@ -348,11 +369,12 @@ No answerable question was wrongly refused (0/16).
 ## Project layout
 
 ```
+Makefile      One-command setup, tests, evaluation and app
 ingestion/    PDF parsing, header/footer cleaning, clause-aware chunking, pipeline
 retrieval/    Tokenizer, BM25, dense index, hybrid (RRF), cross-encoder reranker
 generation/   Prompt, LLM call, citations, confidence bands, answer_question()
 app/          Streamlit UI (main.py, state.py, views.py)
 evaluation/   Question set, retrieval and answer evaluation scripts, results
 tests/        Automated tests (pytest, 117 tests)
-data/raw/     Source PDFs and app uploads (not committed)
+data/raw/     Test PDFs (committed); app uploads in data/raw/uploads/ (not committed)
 ```

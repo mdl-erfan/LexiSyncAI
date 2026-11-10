@@ -160,7 +160,6 @@ env.bak/
 venv.bak/
 .DS_Store
 vscode/
-data/
 models/
 
 # Spyder project settings
@@ -224,7 +223,11 @@ __marimo__/
 .streamlit/secrets.toml
 
 # Project
-data/raw/
+data/*
+!data/raw/
+data/raw/*
+!data/raw/gdpr_2016_679.pdf
+!data/raw/vendor_contract.pdf
 data/indexes/
 .DS_Store
 .vscode/
