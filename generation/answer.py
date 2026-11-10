@@ -16,6 +16,17 @@ class Citation:
     text: str          # the cited passage, for the side-by-side view
     page_start: int
     page_end: int
+    doc_name: str = "" # which PDF the passage comes from, to render its page
+
+
+@dataclass
+class Citation:
+    number: int        # the [n] used in the answer text
+    label: str         # "gdpr_2016_679.pdf, Article 83(4), p. 82"
+    text: str          # the cited passage, for the side-by-side view
+    page_start: int
+    page_end: int
+    doc_name: str = "" # which PDF the passage comes from, to render its page
 
 
 @dataclass
@@ -82,7 +93,7 @@ def answer_question(question, index, documents_searched, k=5, llm=generate) -> A
     for n in valid:
         chunk = results[n - 1][0]
         citations.append(Citation(n, format_citation(chunk), chunk.text,
-                                  chunk.page_start, chunk.page_end))
+                                  chunk.page_start, chunk.page_end, chunk.doc_name))
     return Answer(question=question, text=output["answer"], badge=band, abstained=False,
                   citations=citations, documents_searched=documents_searched,
                   invalid_citations=invalid, top_score=score,
