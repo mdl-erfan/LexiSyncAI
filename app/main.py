@@ -22,11 +22,11 @@ except Exception as exc:  # Ollama not running, model not pulled, etc.
 # --- 1. Create a case: upload 2-5 PDFs -------------------------------------
 st.header("1. Case documents")
 uploads = st.file_uploader(
-    "Upload 2-5 public legal PDFs (one case)", type="pdf", accept_multiple_files=True
+    "Upload 1-5 public legal PDFs (one case)", type="pdf", accept_multiple_files=True
 )
-ready = 2 <= len(uploads) <= 5
+ready = 1 <= len(uploads) <= 5
 if uploads and not ready:
-    st.warning(f"A case needs 2-5 PDFs, you uploaded {len(uploads)}.")
+    st.warning(f"A case needs 1-5 PDFs, you uploaded {len(uploads)}.")
 
 if st.button("Index case", disabled=not ready):
     # Drop the previous case first, so a failure never leaves a half-old, half-new state.
