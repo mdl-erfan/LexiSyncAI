@@ -17,17 +17,25 @@ Final project for Deep Learning & GenAI (DA3), SRH Hochschule Hamburg.
   - [x] 5B: BM25 index
   - [x] 5C: Dense index (bge-small)
   - [x] 5E: Retrieval tests
-- [ ] Step 6: Hybrid retrieval (RRF) + cross-encoder reranker, recall@k per configuration
-- [ ] Step 7: Grounded answers with page/clause citations, abstention, confidence badge (Llama 3.2 via Ollama)
-- [ ] Step 8: Streamlit UI (upload, detected structure, cited page side by side)
+- [x] Step 6: Hybrid retrieval (RRF) + cross-encoder reranker, recall@k per configuration
+- [x] Step 7: Grounded answers with page/clause citations, abstention, confidence badge (Llama 3.2 via Ollama)
+- [x] Step 8: Streamlit UI (upload, detected structure, cited page side by side)
 - [ ] Step 9: Evaluation (15+ held-out questions, no-retrieval vs retrieval comparison)
 - [ ] Step 10: Packaging (Docker/Makefile, pinned dependencies, fixed seeds)
 
 ## Architecture
 
 ```
-PDF -> parser.py -> cleaning.py -> chunker.py -> chunks -> BM25 index  (keywords)
-       \___________ pipeline.py: ingest_pdf(path) ___________/       -> dense index (meaning)
+PDF -> parser -> cleaner -> chunker -> chunks
+                                          |
+              chunks -> BM25 (keywords) --+
+                                          +--> RRF merge -> MiniLM reranker -> top 5 passages
+              chunks -> Dense (meaning) --+
+                                                                                     |
+top 5 passages -> Llama 3.2 (Ollama) -> answer with [n] citations + confidence badge,
+                                        or a refusal (two-layer abstention)
+                                                                                     |
+                               Streamlit UI: upload, structure, cited passage and PDF page side by side
 ```
 
 ### Ingestion (`ingestion/`)
@@ -46,15 +54,56 @@ PDF -> parser.py -> cleaning.py -> chunker.py -> chunks -> BM25 index  (keywords
 | `tokenizer.py` | Turns text into search tokens while keeping legal references intact: amounts (`10 000 000` and `10,000,000` → `10000000`), references (`83(4)`, `6(1)(a)`), clause numbers (`9.3`) and redactions (`[***]` → `[redacted]`). |
 | `bm25.py` | Keyword search with BM25 over each chunk's section label, heading and text. Strong on exact references and amounts. |
 | `dense.py` | Semantic search with the pretrained `BAAI/bge-small-en-v1.5` embedding model (384-dimensional vectors, cosine similarity). Strong on paraphrased questions. |
+| `hybrid.py` | Merges the BM25 and dense rankings with Reciprocal Rank Fusion (k = 60). Uses ranks, not scores, because the two score scales are not comparable. |
+| `rerank.py` | Re-scores the top 20 hybrid candidates with the `Xenova/ms-marco-MiniLM-L-6-v2` cross-encoder and keeps the best 5. `RerankedIndex` is the full retrieval pipeline. |
 
-Both indexes return an empty result for a document without text (e.g. a fully
+All indexes return an empty result for a document without text (e.g. a fully
 scanned PDF) instead of crashing.
 
-**Embedding runtime:** `bge-small` runs as an optimised ONNX export via
+**Embedding runtime:** `bge-small` and MiniLM run as ONNX models via
 [fastembed](https://github.com/qdrant/fastembed) rather than PyTorch. PyTorch no
 longer ships releases for Intel Macs (last version: 2.2.2), while ONNX Runtime
-does, and it is fast on CPU. The model downloads from the Hugging Face Hub
-(~67 MB) on first use and is cached afterwards.
+does, and it is fast on CPU. The models download from the Hugging Face Hub on
+first use and are cached afterwards.
+
+### Generation (`generation/`)
+
+| Module | What it does |
+|---|---|
+| `prompt.py` | System prompt with the answering rules, and the user message: the top 5 passages numbered `[1]`–`[5]`, each with its label (document, section, page), then the question. |
+| `llm.py` | Calls Llama 3.2 3B through Ollama with a JSON schema (`evidence_sufficient`, `answer`), temperature 0, seed 42, model kept loaded for 30 min. |
+| `citations.py` | Finds `[n]` markers in the answer and splits them into valid (a retrieved passage) and invalid (invented) citations. |
+| `thresholds.py` / `confidence.py` | Maps the best reranker score to a confidence band. Cut-offs are stored per reranker model, because each reranker scores on its own scale. |
+| `answer.py` | `answer_question(question, index, documents_searched)` runs retrieval, the two abstention layers and the citation check, and returns an `Answer` (text, badge, citations with page and passage text, documents searched, latency, reason). |
+
+**The LLM cites numbers, the code adds pages.** The model only writes `[n]`; the
+code maps each number to its chunk, so document, clause and page come from the
+parser, not from the model. A citation the model invents (e.g. `[6]`) is
+detected as invalid.
+
+**Two-layer abstention:**
+
+| Best reranker score | Badge | What happens |
+|---|---|---|
+| ≥ 3 | HIGH | The LLM answers |
+| 0 to 3 | MEDIUM | The LLM answers |
+| −4 to 0 | LOW | The LLM decides whether the evidence is sufficient |
+| < −4 | INSUFFICIENT | Refused without calling the LLM (Layer 1) |
+
+In every band, the LLM can still refuse when it judges the passages insufficient
+(Layer 2). An answer without a valid `[n]` citation gets one retry and is then
+refused. Refusals name the documents searched.
+
+### User interface (`app/`)
+
+| Module | What it does |
+|---|---|
+| `main.py` | Page layout: upload 2–5 PDFs, index the case, show the detected structure, ask a question, show the answer. |
+| `state.py` | Models loaded once (`st.cache_resource`), Ollama warm-up at start, uploads saved to `data/raw/uploads/case_<timestamp>/`, index building. |
+| `views.py` | Structure cards (pages, sections, scanned pages flagged), answer with confidence badge, cited passages and rendered PDF pages side by side, refusal view with the documents searched and the abstention layer. |
+
+The index is built once per case and kept in the browser session, so questions
+don't rebuild it.
 
 ## Setup
 
@@ -64,7 +113,13 @@ conda activate lexiSyncAI
 pip install -r requirements.txt
 ```
 
-All dependencies are pinned in `requirements.txt`.
+Install [Ollama](https://ollama.com), start it, and download the model once:
+
+```bash
+ollama pull llama3.2
+```
+
+All Python dependencies are pinned in `requirements.txt`.
 
 ## Test corpus
 
@@ -77,7 +132,17 @@ Place the PDFs in `data/raw/` (they are not committed):
 
 ## Usage
 
-Run all commands from the repository root.
+Run all commands from the repository root, with Ollama running.
+
+**Start the app:**
+
+```bash
+python -m streamlit run app/main.py
+```
+
+Use `python -m streamlit`, not `streamlit run`: it puts the repository root on
+the import path. Indexing GDPR + the Sunrise contract takes about 74 s on an
+Intel Mac CPU; refreshing the browser page loses the index.
 
 **Ingest** one or more PDFs and print a summary for each:
 
@@ -85,22 +150,35 @@ Run all commands from the repository root.
 python -m ingestion.pipeline data/raw/gdpr_2016_679.pdf data/raw/vendor_contract.pdf
 ```
 
-**Search** from Python:
+**Ask a question** from Python:
 
 ```python
-from ingestion.pipeline import ingest_pdf
+from generation.answer import answer_question
+from ingestion.pipeline import ingest_many
 from retrieval.bm25 import BM25Index
 from retrieval.dense import DenseIndex
+from retrieval.hybrid import HybridIndex
+from retrieval.rerank import RerankedIndex, Reranker
 
-doc = ingest_pdf("data/raw/gdpr_2016_679.pdf")
-bm25 = BM25Index(doc.chunks)
-dense = DenseIndex(doc.chunks)          # embeds all chunks once
+docs = ingest_many(["data/raw/gdpr_2016_679.pdf", "data/raw/vendor_contract.pdf"])
+chunks = [c for d in docs for c in d.chunks]
+index = RerankedIndex(HybridIndex(BM25Index(chunks), DenseIndex(chunks)), Reranker())
 
-for chunk, score in bm25.search("Article 83(4)", k=3):
-    print(chunk.section, chunk.page_start, score)
+answer = answer_question(
+    "Within how many hours must a controller notify a personal data breach?",
+    index,
+    [d.doc_name for d in docs],
+)
+print(answer.badge.value, answer.text)
+for c in answer.citations:
+    print(c.number, c.label)
+```
 
-for chunk, score in dense.search("How much can a company be fined?", k=3):
-    print(chunk.section, chunk.page_start, score)
+**Evaluate:**
+
+```bash
+python -m evaluation.evaluate_retrieval   # recall@k per configuration -> evaluation/results/retrieval.json
+python -m evaluation.evaluate_answers     # answers, badges, abstention -> evaluation/results/answers.json
 ```
 
 Each ingestion stage also has its own command-line check:
@@ -118,21 +196,26 @@ python -m ingestion.chunker data/raw/vendor_contract.pdf "9.3"
 python -m pytest
 ```
 
-78 tests, all passing.
+117 tests, all passing.
 
-| File | Tests | What it covers |
-|---|---|---|
-| `test_parser.py` | 6 | Page numbering, page-label fallback, reading order, scanned-page flagging |
-| `test_cleaning.py` | 16 | Repeated headers/footers, numbered headers, page-number formats, short documents, no mutation of input |
-| `test_chunker.py` | 11 | Section labels, heading merging, page ranges, table of contents, splitting long chunks, no text lost |
-| `test_pipeline.py` | 12 | End-to-end on a generated PDF, error handling, determinism, multi-document ingestion |
-| `test_corpus.py` | 5 | Real documents: Art. 83(4) on p. 82, Art. 83(5) on p. 83, clause 9.3 on p. 22, `[***]` kept |
-| `test_tokenizer.py` | 15 | Amount normalisation, legal references, clause numbers, redactions, stopwords |
-| `test_bm25.py` | 7 | Exact amounts, references from section labels, unrelated queries, empty index |
-| `test_dense.py` | 6 | Uses a fake model (no download): vector shape, query prefix, ranking, empty index |
+| File | What it covers |
+|---|---|
+| `test_parser.py` | Page numbering, page-label fallback, reading order, scanned-page flagging |
+| `test_cleaning.py` | Repeated headers/footers, numbered headers, page-number formats, short documents, no mutation of input |
+| `test_chunker.py` | Section labels, heading merging, page ranges, table of contents, splitting long chunks, no text lost |
+| `test_pipeline.py` | End-to-end on a generated PDF, error handling, determinism, multi-document ingestion |
+| `test_corpus.py` | Real documents: GDPR page count, Art. 83(4)/83(5) pages, clause 9.3, `[***]` kept, chunk invariants |
+| `test_tokenizer.py` | Amount normalisation, legal references, clause numbers, redactions, stopwords |
+| `test_bm25.py` | Exact amounts, references from section labels, unrelated queries, empty index |
+| `test_dense.py` | Fake model (no download): vector shape, query prefix, ranking, empty index |
+| `test_hybrid.py` | RRF formula, chunks found by one or both lists, top-n limit, empty indexes |
+| `test_rerank.py` | Best chunk first, sorted float scores, no model call without chunks, reordering of hybrid candidates |
+| `test_citations.py` | Valid and invalid `[n]` markers |
+| `test_confidence.py` | Score-to-band mapping |
+| `test_answer.py` | Fake LLM and index: Layer 1 refusal without an LLM call, LLM refusal, cited answer, citation retry, invented citations, broken JSON |
 
-The unit tests generate their own small PDFs and use a fake embedding model, so
-they run on any machine without the corpus or a model download.
+The unit tests generate their own small PDFs and use fake models, so they run on
+any machine without the corpus, a model download or Ollama.
 `test_corpus.py` skips itself if the PDFs are not in `data/raw/`.
 
 ## Results so far
@@ -144,53 +227,86 @@ they run on any machine without the corpus or a model download.
 | Pages | 88 | 45 |
 | Scanned pages | 0 | 0 |
 | Header/footer lines removed | 88 | 44 (page numbers) |
-| Chunks | 620 | 183 |
-| Labelled chunks | 619 | 177 |
-| Distinct sections | 545 | 155 |
+| Chunks | 635 | 191 |
+| Labelled chunks | 634 | 185 |
+| Distinct sections | 565 | 164 |
 | Key checks | Art. 83(4) on p. 82, Art. 83(5) on p. 83 | Clause 9.3 on p. 22, `[***]` redactions kept |
 
 The few unlabelled chunks are title and preamble text before the first recital
 or clause. Distinct sections are fewer than chunks because long clauses are
 split into pieces that keep the same label.
 
-### BM25 vs dense retrieval (GDPR, top 3)
+### Retrieval: recall@k per configuration
 
-| Query | BM25 | Dense | Better |
-|---|---|---|---|
-| fines up to 20 000 000 EUR | 83(6), 83(5), 83(4) | (151), 83(6), 83(5) | BM25: exact amount |
-| Article 83(4) | **83(4)**, 83(1), 83(8) | 83(9), 83(8), 58(2) | BM25: dense misses the reference |
-| How much can a company be fined for ignoring the regulator? | (157), (28), 57(2) | **83(6)**, 83(4), (148) | Dense: paraphrase, no shared keywords |
-| quantum physics | no results | 3 chunks, scores 0.52–0.55 | BM25 knows there is no match |
+20 held-out questions (12 factual, 4 multi-hop, 4 unanswerable); page-level
+recall on the 16 answerable ones.
 
-Each method fails where the other succeeds, which motivates hybrid retrieval
-(Step 6). Dense scores are compressed (right and wrong hits differ by ~0.01),
-so a cross-encoder reranker decides the final order.
+| Setup | @1 | @3 | @5 | @10 | s/question |
+|---|---|---|---|---|---|
+| BM25 | 0.56 | 0.72 | 0.78 | 0.81 | 0.00 |
+| Dense | 0.78 | 0.88 | 0.88 | 0.97 | 0.01 |
+| Hybrid (RRF) | 0.50 | 0.94 | 0.97 | 1.00 | 0.01 |
+| **Hybrid + MiniLM** (used) | 0.75 | 0.97 | 1.00 | 1.00 | 0.69 |
+| Hybrid + bge-reranker | 0.81 | 1.00 | 1.00 | 1.00 | 4.80 |
+
+**Mandatory comparison, dense-only vs hybrid:** recall@5 rises from 0.88
+(dense) to 0.97 (hybrid) and 1.00 (hybrid + MiniLM). MiniLM was chosen over
+bge-reranker: about the same recall, 7× faster, 87 MB instead of 1 GB.
+
+BM25 and dense fail on different questions: BM25 finds exact references
+(`Article 83(4)`, `20 000 000 EUR`) that dense misses, and dense finds
+paraphrased questions with no shared keywords. Hybrid retrieval combines both.
+
+### Answers and abstention
+
+Same 20 questions through `answer_question()` (Llama 3.2 3B, temperature 0,
+seed 42, top 5 passages):
+
+| Run | What changed | Unanswerable refused | Answerable wrongly refused | s/answer |
+|---|---|---|---|---|
+| 1 | First version | 4/4 | 3/16 | ≈ 20 |
+| 2 | Stronger prompt: rules 6–8, an example answer | 4/4 | 1/16 | ≈ 8 |
+| 3 | One citation retry; passages in document order | 4/4 | 0/16 | ≈ 19 |
+
+Layer 1 (score) refused 2 of the 4 unanswerable questions in about 1 s without
+calling the LLM; Layer 2 (LLM check) caught the other 2. A first manual check
+of run 3 found 11 of 16 answers correct, 3 correct with a flaw and 2 wrong or
+poor; the full evaluation follows in Step 9.
 
 ### Latency (Intel MacBook Pro, CPU only)
 
 | Operation | Time |
 |---|---|
-| BM25 index, GDPR (620 chunks) | < 1 s |
-| Dense index, GDPR (620 chunks) | 48 s |
-| Embedding one question | < 1 s |
+| BM25 index, both documents (826 chunks) | < 1 s |
+| Dense index, both documents (826 chunks) | ≈ 74 s |
+| Retrieval + reranking per question | ≈ 0.7 s |
+| Full answer per question | ≈ 10–25 s, depending on the laptop's power state |
+| Refusal by Layer 1 | ≈ 1 s |
 
 ## Known issues
 
+- The confidence badge measures retrieval, not correctness: a strongly matching
+  passage gives HIGH even when the 3B model's answer is incomplete.
+- Multi-hop answers are the weakest part: the model sometimes cites only one of
+  the two clauses it needs.
+- The dense index is rebuilt for every case (≈ 74 s) and is not saved. In the
+  app it lives in the browser session, so refreshing the page loses it.
+- The confidence bands were calibrated on the same 20 questions; they still
+  need checking on unseen documents.
+- Scanned pages are flagged but not OCR'd, and tables are not detected
+  (optional bonus features).
 - Header detection treats digits as interchangeable (`L 119/82` = `L 119/83`),
   so on short documents, body lines that differ only by a number could be
   mistaken for headers. Not observed on the test corpus.
-- Dense indexes are rebuilt on every program start (48 s for GDPR); saving them
-  to `data/indexes/` is planned if evaluation runs need it.
-- Scanned pages are flagged but not OCR'd (optional bonus feature).
 
 ## Project layout
 
 ```
 ingestion/    PDF parsing, header/footer cleaning, clause-aware chunking, pipeline
-retrieval/    Tokenizer, BM25 index, dense index (hybrid + reranker planned)
-generation/   Cited answers, abstention, confidence badge (planned)
-app/          Streamlit UI (planned)
-evaluation/   Question set, recall@k, citation precision, abstention accuracy (planned)
-tests/        Automated tests (pytest, 78 tests)
-data/raw/     Source PDFs (not committed)
+retrieval/    Tokenizer, BM25, dense index, hybrid (RRF), cross-encoder reranker
+generation/   Prompt, LLM call, citations, confidence bands, answer_question()
+app/          Streamlit UI (main.py, state.py, views.py)
+evaluation/   Question set, retrieval and answer evaluation scripts, results
+tests/        Automated tests (pytest, 117 tests)
+data/raw/     Source PDFs and app uploads (not committed)
 ```
