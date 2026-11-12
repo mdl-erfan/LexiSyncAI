@@ -19,7 +19,7 @@ try:
 except Exception as exc:  # Ollama not running, model not pulled, etc.
     st.sidebar.warning(f"Ollama is not ready: {exc}")
 
-# --- 1. Create a case: upload 2-5 PDFs -------------------------------------
+# --- 1. Create a case: upload 1-5 PDFs -------------------------------------
 st.header("1. Case documents")
 uploads = st.file_uploader(
     "Upload 1-5 public legal PDFs (one case)", type="pdf", accept_multiple_files=True

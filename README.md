@@ -25,7 +25,7 @@ Final project for Deep Learning & GenAI (DA3), SRH Hochschule Hamburg.
   - [x] 10.1: Makefile (one-command run), pinned dependencies, fixed seeds
   - [x] 10.2: One-page architecture diagram (`docs/architecture.png`)
   - [x] 10.3: Test on unseen PDFs; upload opened to 1–5 PDFs for the exam demo
-  - [ ] 10.4: Slides and a timed demo rehearsal
+  - [x] 10.4: Slides and a timed demo rehearsal
 
 ## Architecture
 
