@@ -21,7 +21,7 @@ Final project for Deep Learning & GenAI (DA3), SRH Hochschule Hamburg.
 - [x] Step 7: Grounded answers with page/clause citations, abstention, confidence badge (Llama 3.2 via Ollama)
 - [x] Step 8: Streamlit UI (upload, detected structure, cited page side by side)
 - [x] Step 9: Evaluation (20 held-out questions: correctness, citation precision, abstention, latency; dense-only vs hybrid comparison)
-- [ ] Step 10: Packaging and presentation
+- [x] Step 10: Packaging and presentation
   - [x] 10.1: Makefile (one-command run), pinned dependencies, fixed seeds
   - [x] 10.2: One-page architecture diagram (`docs/architecture.png`)
   - [x] 10.3: Test on unseen PDFs; upload opened to 1–5 PDFs for the exam demo
