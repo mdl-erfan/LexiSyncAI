@@ -6,6 +6,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from app.state import build_index, get_models, save_uploads, warm_up_llm
+from generation.llm import LLMUnavailableError, active_model, cloud_enabled
 from app.views import show_answer, show_structure
 from generation.answer import answer_question
 from ingestion.pipeline import ingest_many
@@ -18,7 +19,10 @@ st.caption("Evidence-grounded legal document analyst: cited answers or an explic
 embedder, reranker = get_models()
 try:
     warm_up_llm()
-    st.sidebar.success("Models ready (Ollama: llama3.2 loaded)")
+    if cloud_enabled():
+        st.sidebar.success(f"Models ready (cloud: {active_model()})")
+    else:
+        st.sidebar.success(f"Models ready (Ollama: {active_model()} loaded)")
 except Exception as exc:  # Ollama not running, model not pulled, etc.
     st.sidebar.warning(f"Ollama is not ready: {exc}")
 
@@ -76,12 +80,18 @@ else:
         )
         asked = st.form_submit_button("Ask")
     if asked and question.strip():
-        with st.spinner("Searching, reranking and writing a cited answer..."):
-            st.session_state["answer"] = answer_question(
-                question.strip(),
-                st.session_state["index"],
-                st.session_state["documents_searched"],
-            )
+        try:
+            with st.spinner("Searching, reranking and writing a cited answer..."):
+                st.session_state["answer"] = answer_question(
+                    question.strip(),
+                    st.session_state["index"],
+                    st.session_state["documents_searched"],
+                )
+        except LLMUnavailableError as exc:
+            st.session_state.pop("answer", None)   # don't show the previous answer
+            st.warning("The language model is busy or unavailable right now "
+                       "(free-tier limit). Please wait a minute and ask again.")
+            st.caption(str(exc))
     if "answer" in st.session_state:
         pdf_paths = {p.name: p for p in st.session_state["paths"]}
         show_answer(st.session_state["answer"], pdf_paths)

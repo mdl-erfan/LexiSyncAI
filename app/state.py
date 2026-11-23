@@ -5,7 +5,7 @@ from pathlib import Path
 import ollama
 import streamlit as st
 
-from generation.llm import MODEL
+from generation.llm import MODEL, cloud_enabled
 from ingestion.pipeline import IngestedDocument
 from retrieval.bm25 import BM25Index
 from retrieval.dense import DenseIndex, load_model
@@ -23,8 +23,11 @@ def get_models():
 
 
 @st.cache_resource(show_spinner=f"Loading {MODEL} into memory...")
+@st.cache_resource(show_spinner="Loading the language model...")
 def warm_up_llm() -> bool:
-    """An empty prompt makes Ollama load the model without generating text."""
+    """Make Ollama load the model (empty prompt). Nothing to warm up in cloud mode."""
+    if cloud_enabled():
+        return True
     ollama.generate(model=MODEL, prompt="", keep_alive="30m")
     return True
 
