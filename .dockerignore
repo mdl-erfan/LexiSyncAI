@@ -1,0 +1,10 @@
+.git
+.github
+.venv
+__pycache__/
+.pytest_cache/
+*.py[cod]
+data/raw/uploads/
+evaluation/results/
+tests/
+.DS_Store

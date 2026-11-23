@@ -1,3 +1,13 @@
+---
+title: LexiSyncAI
+emoji: ⚖️
+colorFrom: blue
+colorTo: purple
+sdk: docker
+app_port: 7860
+pinned: false
+---
+
 # LexiSyncAI
 
 Evidence-grounded legal document analyst: upload 1–5 legal PDFs, ask questions,
